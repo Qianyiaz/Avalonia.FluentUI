@@ -1,0 +1,102 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    x:Class="Avalonia.FluentUI.Views.Pages.WifiPage"
+    x:DataType="vm:WifiPageViewModel">
+
+    <UserControl.DataContext>
+        <vm:WifiPageViewModel />
+    </UserControl.DataContext>
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:WifiPageViewModel />
+    </Design.DataContext>
+
+    <UserControl.Styles>
+        <Style Selector="ListBoxItem">
+            <Setter Property="MinHeight" Value="60" />
+            <Style Selector="^ ToggleSwitch">
+                <Setter Property="Opacity" Value="0" />
+                <Setter Property="IsHitTestVisible" Value="False"/>
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <DoubleTransition Property="Opacity" Duration="0:0:0.1" Easing="QuadraticEaseIn" />
+                        <ThicknessTransition Property="Margin" Duration="0:0:0.15" Easing="QuadraticEaseIn" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:selected ToggleSwitch">
+                <Setter Property="Opacity" Value="1" />
+                <Setter Property="IsHitTestVisible" Value="True"/>
+                <Setter Property="Margin" Value="0 35 0 0" />
+            </Style>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid
+        Margin="0 8 0 0"
+        RowDefinitions="Auto,*">
+        <StackPanel
+            Spacing="5"
+            Margin="0 0 5 0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <ToggleButton
+                Content="Multiple"
+                IsChecked="{CompiledBinding IsMultiple}"
+                Command="{CompiledBinding MultipleCommand}"
+                CommandParameter="{CompiledBinding #ListBox}" />
+            
+            <Button
+                Content="Add"
+                Command="{CompiledBinding AddCommand}" />
+            
+            <Button
+                Content="Reset"
+                Command="{CompiledBinding ResetCommand}" />
+            
+            <Button
+                Content="Rename"
+                Command="{CompiledBinding RenameCommand}"
+                CommandParameter="{CompiledBinding #ListBox.Selection}" />
+            
+            <Button
+                Content="Remove"
+                IsEnabled="{CompiledBinding IsEnabled}"
+                Command="{CompiledBinding RemoveCommand}"
+                CommandParameter="{CompiledBinding #ListBox.Selection}" />
+        </StackPanel>
+        
+        <ListBox
+            Grid.Row="1"
+            Name="ListBox"
+            SelectionMode="Toggle"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ItemsSource="{CompiledBinding Items}">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="vm:ConnectionItem">
+                    <Grid Margin="8">
+                        <StackPanel VerticalAlignment="Top" Spacing="5" Orientation="Horizontal">
+                            <ui:SymbolIcon
+                                FontSize="28"
+                                Symbol="WifiProtected" />
+                            
+                            <TextBlock
+                                FontSize="16"
+                                VerticalAlignment="Center"
+                                Text="{CompiledBinding Name}" />
+                        </StackPanel>
+
+                        <ToggleSwitch
+                            HorizontalAlignment="Right"
+                            IsChecked="{CompiledBinding IsChecked}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,46 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Windows"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    x:Class="Avalonia.FluentUI.Views.Windows.MainWindow"
+    x:DataType="vm:MainWindowViewModel"
+    Title="{CompiledBinding Title}"
+    TransparencyLevelHint="Mica,AcrylicBlur,None"
+    Background="Transparent"
+    Icon="/app.ico">
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <ui:NavigationView
+        Name="RootNavigation"
+        PaneDisplayMode="Auto"
+        IsSettingsVisible="False"
+        SelectionChanged="OnSelectionChanged">
+        <ui:NavigationView.MenuItems>
+            <ui:NavigationViewItem
+                IconSource="Home"
+                Content="Home" />
+            
+            <ui:NavigationViewItem
+                IconSource="Wifi4"
+                Content="Wifi" />
+        </ui:NavigationView.MenuItems>
+        
+        <ui:NavigationView.FooterMenuItems>
+            <ui:NavigationViewItem
+                IconSource="Settings"
+                Content="Settings" />
+        </ui:NavigationView.FooterMenuItems>
+        
+        <ui:Frame Name="Frame" />
+    </ui:NavigationView>
+</Window>
