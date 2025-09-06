@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Avalonia.FluentUI.Views.SettingPages">
+    <StackPanel
+        VerticalAlignment="Top"
+        Margin="8"
+        Spacing="8">
+        <controls:SettingsExpander Header="App Theme"
+                                   IconSource="DarkTheme"
+                                   Description="Change the current app theme">
+            <controls:SettingsExpander.Footer>
+                <ComboBox
+                    HorizontalAlignment="Right"
+                    SelectionChanged="SelectingItemsControl_OnSelectionChanged"
+                    SelectedIndex="0">
+                    <ComboBox.Items>
+                        <ComboBoxItem>System</ComboBoxItem>
+                        <ComboBoxItem>Light</ComboBoxItem>
+                        <ComboBoxItem>Dark</ComboBoxItem>
+                    </ComboBox.Items>
+                </ComboBox>
+            </controls:SettingsExpander.Footer>
+        </controls:SettingsExpander>
+    </StackPanel>
+</UserControl>
