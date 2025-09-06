@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <LangVersion>preview</LangVersion>
+        <TargetFramework>net9.0</TargetFramework>
+        <ApplicationIcon>Assets\avalonia-logo.ico</ApplicationIcon>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <PublishAot>true</PublishAot>
+        <OptimizationPreference>Speed</OptimizationPreference>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+        <PackageReference Include="HotAvalonia" Version="*"/>
+        <PackageReference Include="Avalonia.Diagnostics" Version="*"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**"/>
+        <PackageReference Include="Avalonia.Desktop" Version="*"/>
+        <PackageReference Include="FluentAvaloniaUI" Version="*"/>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="*"/>
+    </ItemGroup>
+
+</Project>

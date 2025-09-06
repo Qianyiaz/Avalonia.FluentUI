@@ -1,0 +1,35 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
+    xmlns:vm="clr-namespace:Avalonia.FluentUI.ViewModels"
+    x:DataType="vm:SettingsPageViewModel"
+    x:Class="Avalonia.FluentUI.Views.SettingsPage">
+
+    <UserControl.DataContext>
+        <vm:SettingsPageViewModel />
+    </UserControl.DataContext>
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:SettingsPageViewModel />
+    </Design.DataContext>
+
+    <StackPanel
+        VerticalAlignment="Top"
+        Margin="8"
+        Spacing="8">
+        <ui:SettingsExpander
+            Header="App Theme"
+            IconSource="DarkTheme"
+            Description="Change the current app theme">
+            <ui:SettingsExpander.Footer>
+                <ComboBox
+                    HorizontalAlignment="Right"
+                    ItemsSource="{Binding ThemeItems}"
+                    SelectedValue="{Binding SelectedItem}" />
+            </ui:SettingsExpander.Footer>
+        </ui:SettingsExpander>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,35 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:Avalonia.FluentUI.ViewModels"
+    x:Class="Avalonia.FluentUI.Views.HomePage"
+    x:DataType="vm:HomePageViewModel">
+
+    <UserControl.DataContext>
+        <vm:HomePageViewModel />
+    </UserControl.DataContext>
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:HomePageViewModel />
+    </Design.DataContext>
+
+    <Border
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Background="{DynamicResource ButtonBackground}"
+        CornerRadius="6"
+        Padding="25">
+        <StackPanel
+            Spacing="15">
+            <TextBlock
+                FontSize="25"
+                TextWrapping="WrapWithOverflow"
+                Text="This is HomePage." />
+            <Button
+                Command="{Binding Count}"
+                Content="{Binding Content}" />
+        </StackPanel>
+    </Border>
+</UserControl>

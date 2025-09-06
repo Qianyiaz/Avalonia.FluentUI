@@ -1,0 +1,22 @@
+name: Project Publishing
+permissions:
+  contents: read
+on:
+  push:
+    paths: [ 'Avalonia.FluentUI/**','**/Publish.yml' ]
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/cache@main
+        with:
+          path: ~/.nuget/packages
+          key: nuget-cache
+      - run: dotnet publish
+      - uses: actions/upload-artifact@main
+        with:
+          name: Release
+          path: |
+            **/publish
+            !**/*.pdb

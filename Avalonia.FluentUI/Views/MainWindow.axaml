@@ -1,0 +1,50 @@
+<windowing:AppWindow
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:Avalonia.FluentUI.ViewModels"
+    xmlns:ui="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
+    xmlns:windowing="clr-namespace:FluentAvalonia.UI.Windowing;assembly=FluentAvalonia"
+    x:Class="Avalonia.FluentUI.Views.MainWindow"
+    x:DataType="vm:MainWindowViewModel"
+    Icon="/Assets/avalonia-logo.ico"
+    Title="{Binding Title}"
+    MinHeight="200" MinWidth="285"
+    Height="550" Width="1050">
+
+    <windowing:AppWindow.Styles>
+        <Style
+            Selector="windowing|AppWindow[IsActive=True]">
+            <Setter
+                Property="Background"
+                Value="Transparent" />
+        </Style>
+    </windowing:AppWindow.Styles>
+
+    <windowing:AppWindow.DataContext>
+        <vm:MainWindowViewModel />
+    </windowing:AppWindow.DataContext>
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <ui:NavigationView
+        Name="RootNavigation"
+        SelectionChanged="OnSelectionChanged"
+        IsSettingsVisible="False"
+        PaneDisplayMode="Auto">
+        <ui:NavigationView.MenuItems>
+            <ui:NavigationViewItem
+                IconSource="Home"
+                Content="Home" />
+        </ui:NavigationView.MenuItems>
+        <ui:NavigationView.FooterMenuItems>
+            <ui:NavigationViewItem
+                IconSource="Settings"
+                Content="Settings" />
+        </ui:NavigationView.FooterMenuItems>
+        <ui:Frame Name="Frame" />
+    </ui:NavigationView>
+</windowing:AppWindow>
