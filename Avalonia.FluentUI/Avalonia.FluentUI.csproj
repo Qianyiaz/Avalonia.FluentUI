@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Version>1.0.1.3</Version>
+        <Authors>Qianyiaz</Authors>
+        <OutputType>WinExe</OutputType>
+        <LangVersion>preview</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <TargetFramework>net9.0</TargetFramework>
+        <ApplicationIcon>app.ico</ApplicationIcon>
+        <Copyright>Copyright © Qianyiaz 2025</Copyright>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+        <PackageReference Include="HotAvalonia" Version="3.0.0"/>
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.8"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="app.ico"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.8"/>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
+        <PackageReference Include="FluentAvaloniaUI.NoAnim" Version="2.4.0-build3"/>
+        <PackageReference Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'" Include="NeoBundle" Version="1.0.3"/>
+    </ItemGroup>
+
+</Project>
