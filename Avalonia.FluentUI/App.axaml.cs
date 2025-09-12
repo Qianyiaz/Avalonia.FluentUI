@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
@@ -14,21 +15,20 @@ public class App : Application
         AvaloniaXamlLoader.Load(this);
     }
 
+    [DynamicDependency(DynamicallyAccessedMemberTypes.All, typeof(DataAnnotationsValidationPlugin))]
     public override void OnFrameworkInitializationCompleted()
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
             // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
-
-#pragma warning disable IL2026
+            
             // Get an array of plugins to remove
             var dataValidationPluginsToRemove =
                 BindingPlugins.DataValidators.OfType<DataAnnotationsValidationPlugin>().ToArray();
 
             // remove each entry found
             foreach (var plugin in dataValidationPluginsToRemove) BindingPlugins.DataValidators.Remove(plugin);
-#pragma warning restore IL2026
             desktop.MainWindow = new MainWindow
             {
                 DataContext = new MainWindowViewModel()

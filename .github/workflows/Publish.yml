@@ -13,10 +13,10 @@ jobs:
         with:
           path: ~/.nuget/packages
           key: nuget-cache
-      - run: dotnet publish -r ${{ matrix.config }}
+      - run: dotnet publish
       - uses: actions/upload-artifact@main
         with:
-          name: Release-${{ matrix.config }}
+          name: Release
           path: |
             **/publish
             !**/*.pdb

@@ -21,8 +21,8 @@
         Background="{DynamicResource ButtonBackground}"
         CornerRadius="6">
         <StackPanel
-            Spacing="8">
-            <TextBlock TextWrapping="WrapWithOverflow" Margin="10" FontSize="25" Text="This is HomePage." />
+            Spacing="15">
+            <TextBlock TextWrapping="WrapWithOverflow" FontSize="25" Text="This is HomePage." />
             <Button Command="{Binding Count}" Content="{Binding Content}" />
         </StackPanel>
     </Border>
