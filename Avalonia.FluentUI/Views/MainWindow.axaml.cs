@@ -11,13 +11,16 @@ public partial class MainWindow : AppWindow
     {
         InitializeComponent();
     }
-    
+
     protected override void OnLoaded(RoutedEventArgs e)
     {
         base.OnLoaded(e);
         RootNavigation.SelectedItem = RootNavigation.MenuItems[0];
     }
-    
+
+    private readonly HomePage _homePage = new();
+    private readonly SettingsPage _settingsPage = new();
+
     [DynamicDependency(DynamicallyAccessedMemberTypes.All, typeof(HomePage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.All, typeof(SettingsPage))]
     private void OnSelectionChanged(object sender, NavigationViewSelectionChangedEventArgs e)
@@ -26,10 +29,10 @@ public partial class MainWindow : AppWindow
         switch (item.Tag)
         {
             case "home":
-                Frame.Navigate(typeof(HomePage));
+                Frame.Navigate(typeof(HomePage),_homePage);
                 break;
             case "settings":
-                Frame.Navigate(typeof(SettingsPage));
+                Frame.Navigate(typeof(SettingsPage),_settingsPage);
                 break;
         }
     }

@@ -1,5 +1,4 @@
 using Avalonia.Controls;
-using Avalonia.Styling;
 
 namespace Avalonia.FluentUI.Views;
 

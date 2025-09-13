@@ -16,6 +16,7 @@ public partial class HomePageViewModel : ObservableObject
             Content = "Clicked 1 time.";
             return;
         }
+
         Content = $"Clicked {_i} times.";
     }
 }

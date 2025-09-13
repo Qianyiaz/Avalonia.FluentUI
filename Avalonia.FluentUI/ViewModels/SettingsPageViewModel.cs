@@ -6,8 +6,7 @@ namespace Avalonia.FluentUI.ViewModels;
 
 public partial class SettingsPageViewModel : ObservableObject
 {
-    [ObservableProperty]
-    private ComboBoxItem _selectedItem;
+    [ObservableProperty] private ComboBoxItem _selectedItem;
 
     partial void OnSelectedItemChanged(ComboBoxItem value)
     {
