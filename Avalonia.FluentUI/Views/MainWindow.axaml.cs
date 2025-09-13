@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Avalonia.Controls;
 using Avalonia.Interactivity;
 using FluentAvalonia.UI.Controls;
 using FluentAvalonia.UI.Windowing;
@@ -15,6 +16,14 @@ public partial class MainWindow : AppWindow
     protected override void OnLoaded(RoutedEventArgs e)
     {
         base.OnLoaded(e);
+        if (IsWindows11)
+        {
+            TransparencyLevelHint = [WindowTransparencyLevel.Mica];
+        }
+        else if (IsWindows)
+        {
+            TransparencyLevelHint = [WindowTransparencyLevel.AcrylicBlur];
+        }
         RootNavigation.SelectedItem = RootNavigation.MenuItems[0];
     }
 
@@ -29,10 +38,10 @@ public partial class MainWindow : AppWindow
         switch (item.Tag)
         {
             case "home":
-                Frame.Navigate(typeof(HomePage),_homePage);
+                Frame.Navigate(typeof(HomePage), _homePage);
                 break;
             case "settings":
-                Frame.Navigate(typeof(SettingsPage),_settingsPage);
+                Frame.Navigate(typeof(SettingsPage), _settingsPage);
                 break;
         }
     }
