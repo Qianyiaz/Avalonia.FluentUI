@@ -10,6 +10,9 @@ namespace Avalonia.FluentUI.Views;
 
 public partial class MainWindow : AppWindow
 {
+    private readonly HomePage _homePage = new();
+    private readonly SettingsPage _settingsPage = new();
+
     public MainWindow()
     {
         InitializeComponent();
@@ -19,19 +22,11 @@ public partial class MainWindow : AppWindow
     {
         base.OnLoaded(e);
         if (IsWindows11)
-        {
             TransparencyLevelHint = [WindowTransparencyLevel.Mica];
-        }
-        else if (IsWindows)
-        {
-            TransparencyLevelHint = [WindowTransparencyLevel.AcrylicBlur];
-        }
+        else if (IsWindows) TransparencyLevelHint = [WindowTransparencyLevel.AcrylicBlur];
 
         RootNavigation.SelectedItem = RootNavigation.MenuItems[0];
     }
-
-    private readonly HomePage _homePage = new();
-    private readonly SettingsPage _settingsPage = new();
 
     [DynamicDependency(DynamicallyAccessedMemberTypes.All, typeof(HomePage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.All, typeof(SettingsPage))]

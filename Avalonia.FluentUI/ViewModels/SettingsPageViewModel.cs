@@ -1,7 +1,10 @@
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Reflection;
 using Avalonia.Controls;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Avalonia.FluentUI.ViewModels;
 
@@ -20,6 +23,8 @@ public partial class SettingsPageViewModel : ObservableObject
         };
     }
 
+    public string Version => Assembly.GetEntryAssembly()?.GetName().Version?.ToString();
+
     public ObservableCollection<ComboBoxItem> ThemeItems { get; } =
     [
         new() { Content = "System" },
@@ -36,5 +41,15 @@ public partial class SettingsPageViewModel : ObservableObject
             "Dark" => ThemeVariant.Dark,
             _ => ThemeVariant.Default
         };
+    }
+
+    [RelayCommand]
+    private void OpenUrl()
+    {
+        Process.Start(new ProcessStartInfo
+        {
+            FileName = "https://github.com/Qianyiaz/Avalonia.FluentUI",
+            UseShellExecute = true
+        });
     }
 }
