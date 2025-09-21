@@ -1,10 +1,7 @@
-using System.Diagnostics.CodeAnalysis;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.FluentUI.Views;
 using Avalonia.Markup.Xaml;
-
-#pragma warning restore IL2026
 
 namespace Avalonia.FluentUI;
 
@@ -15,7 +12,6 @@ public class App : Application
         AvaloniaXamlLoader.Load(this);
     }
 
-    [DynamicDependency(DynamicallyAccessedMemberTypes.All, typeof(DataAnnotationsValidationPlugin))]
     public override void OnFrameworkInitializationCompleted()
     {
         // If you use CommunityToolkit, line below is needed to remove Avalonia data validation.

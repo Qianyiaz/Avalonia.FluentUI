@@ -19,7 +19,7 @@
         HorizontalAlignment="Center"
         VerticalAlignment="Center"
         Background="{DynamicResource ButtonBackground}"
-        CornerRadius="6"
+        CornerRadius="{DynamicResource OverlayCornerRadius}"
         Padding="25">
         <StackPanel
             Spacing="15">
@@ -27,7 +27,9 @@
                 FontSize="25"
                 TextWrapping="WrapWithOverflow"
                 Text="This is HomePage." />
+            <!-- ReSharper disable once Xaml.StyleClassNotFound -->
             <Button
+                Classes="accent"
                 Command="{Binding Count}"
                 Content="{Binding Content}" />
         </StackPanel>
