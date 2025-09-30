@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <Version>1.0.1</Version>
         <OutputType>WinExe</OutputType>
         <LangVersion>preview</LangVersion>
         <TargetFramework>net9.0</TargetFramework>
@@ -8,14 +9,19 @@
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-        <PublishAot>true</PublishAot>
-        <OptimizationPreference>Speed</OptimizationPreference>
+    <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'">
+        <BundleVersion>1.0.1</BundleVersion>
+        <BundleName>Avalonia.FluentUI</BundleName>
+        <BundlePackageType>APPL</BundlePackageType>
+        <BundleId>com.Qianyiaz.Avalonia.FluentUI</BundleId>
+        <BundleDevelopmentRegion>en</BundleDevelopmentRegion>
+        <CFBundleShortVersionString>1.0</CFBundleShortVersionString>
+        <BundleCopyright>Copyright © Qianyiaz 2025</BundleCopyright>
+        <BundleCategory>public.app-category.productivity</BundleCategory>
     </PropertyGroup>
 
-    <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-        <PackageReference Include="HotAvalonia" Version="*"/>
-        <PackageReference Include="Avalonia.Diagnostics" Version="*"/>
+    <ItemGroup Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'">
+        <PackageReference Include="Dotnet.Bundle" Version="*"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -23,6 +29,11 @@
         <PackageReference Include="Avalonia.Desktop" Version="*"/>
         <PackageReference Include="FluentAvaloniaUI" Version="*"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="*"/>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+        <PackageReference Include="HotAvalonia" Version="*"/>
+        <PackageReference Include="Avalonia.Diagnostics" Version="*"/>
     </ItemGroup>
 
 </Project>

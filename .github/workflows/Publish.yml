@@ -1,22 +1,60 @@
 name: Project Publishing
 permissions:
-  contents: read
+  contents: write
 on:
   push:
     paths: [ 'Avalonia.FluentUI/**','**/Publish.yml' ]
 jobs:
-  publish:
-    runs-on: windows-latest
+  build:
+    strategy:
+      matrix:
+        include:
+          - platform: windows-latest
+            runtime: win-x64
+          - platform: ubuntu-latest
+            runtime: linux-x64
+          - platform: macos-latest
+            runtime: osx-x64
+          - platform: macos-latest
+            runtime: osx-arm64
+    runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@main
       - uses: actions/cache@main
         with:
           path: ~/.nuget/packages
-          key: nuget-cache
-      - run: dotnet publish
+          key: nuget-cache-${{ matrix.platform }}
+      - run: dotnet publish -r ${{ matrix.runtime }} -p:PublishAot=true -p:TrimmerRemoveSymbols=true -p:OptimizationPreference=Size
+        if: matrix.platform != 'macos-latest'
+      - run: |
+          dotnet publish -t:BundleApp -r ${{ matrix.runtime }} -p:PublishAot=true -p:TrimmerRemoveSymbols=true -p:OptimizationPreference=Size -p:UseAppHost=true
+          chmod +x "Avalonia.FluentUI/bin/Release/net9.0/${{ matrix.runtime }}/publish/Avalonia.FluentUI.app/Contents/MacOS/Avalonia.FluentUI"
+          codesign --force --deep --sign - "Avalonia.FluentUI/bin/Release/net9.0/${{ matrix.runtime }}/publish/Avalonia.FluentUI.app"
+          codesign --verify --verbose "Avalonia.FluentUI/bin/Release/net9.0/${{ matrix.runtime }}/publish/Avalonia.FluentUI.app"
+        if: matrix.platform == 'macos-latest'
       - uses: actions/upload-artifact@main
         with:
-          name: Release
+          name: Release-${{ matrix.runtime }}
           path: |
-            **/publish
+            ${{ matrix.platform == 'macos-latest' && '**/*.app' || '**/publish' }}
+            **/*.app
+            !**/*.dSYM
             !**/*.pdb
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+      - uses: actions/download-artifact@main
+        with:
+          path: artifacts
+      - uses: softprops/action-gh-release@master
+        with:
+          tag_name: action
+          prerelease: true
+          overwrite: true
+          files: artifacts/**/*.zip
