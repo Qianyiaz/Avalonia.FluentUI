@@ -1,13 +1,16 @@
 using System.Collections.ObjectModel;
-using Avalonia.Controls;
+using System.Diagnostics;
+using System.Reflection;
+using System.Threading.Tasks;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
+using FluentAvalonia.UI.Controls;
 
 namespace Avalonia.FluentUI.ViewModels;
 
 public partial class SettingsPageViewModel : ObservableObject
 {
-    [ObservableProperty] private ComboBoxItem _selectedItem;
+    [ObservableProperty] private FAComboBoxItem _selectedItem;
 
     public SettingsPageViewModel()
     {
@@ -20,14 +23,16 @@ public partial class SettingsPageViewModel : ObservableObject
         };
     }
 
-    public ObservableCollection<ComboBoxItem> ThemeItems { get; } =
+    public static string Version => Assembly.GetEntryAssembly()?.GetName().Version?.ToString();
+
+    public ObservableCollection<FAComboBoxItem> ThemeItems { get; } =
     [
         new() { Content = "System" },
         new() { Content = "Light" },
         new() { Content = "Dark" }
     ];
 
-    partial void OnSelectedItemChanged(ComboBoxItem value)
+    partial void OnSelectedItemChanged(FAComboBoxItem value)
     {
         Application.Current?.RequestedThemeVariant = value?.Content switch
         {
@@ -36,5 +41,26 @@ public partial class SettingsPageViewModel : ObservableObject
             "Dark" => ThemeVariant.Dark,
             _ => ThemeVariant.Default
         };
+    }
+
+    public async Task OpenUrl()
+    {
+        if (await new ContentDialog
+        {
+            Title = "Let's go ...",
+            Content = """
+                          This is a demo app for Avalonia.FluentUI.
+                          You can find the source code on GitHub.
+                          Feel free to star the repo if you like it!
+                          Thank you for using Avalonia.FluentUI! :-)
+                          """,
+            PrimaryButtonText = "Go! :-)",
+            CloseButtonText = "Leave me alone!"
+        }.ShowAsync() == ContentDialogResult.Primary)
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://github.com/Qianyiaz/Avalonia.FluentUI",
+                UseShellExecute = true
+            });
     }
 }
