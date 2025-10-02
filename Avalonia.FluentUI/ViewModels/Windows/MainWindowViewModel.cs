@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
-using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Avalonia.FluentUI.ViewModels;
+namespace Avalonia.FluentUI.ViewModels.Windows;
 
 public class MainWindowViewModel : ObservableObject
 {

@@ -1,19 +1,19 @@
-<wnd:AppWindow
+<Window
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:vm="using:Avalonia.FluentUI.ViewModels"
     xmlns:ui="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
-    xmlns:wnd="clr-namespace:FluentAvalonia.UI.Windowing;assembly=FluentAvalonia"
-    x:Class="Avalonia.FluentUI.Views.MainWindow"
+    xmlns:vm="clr-namespace:Avalonia.FluentUI.ViewModels.Windows"
+    x:Class="Avalonia.FluentUI.Views.Windows.MainWindow"
     x:DataType="vm:MainWindowViewModel"
-    Icon="/Assets/avalonia-logo.ico"
+    TransparencyLevelHint="Mica,AcrylicBlur,None"
     Title="{Binding Title}"
     MinHeight="200" MinWidth="285"
-    Height="550" Width="1050">
+    Background="Transparent"
+    Icon="/Assets/app.ico">
 
-    <wnd:AppWindow.DataContext>
+    <Window.DataContext>
         <vm:MainWindowViewModel />
-    </wnd:AppWindow.DataContext>
+    </Window.DataContext>
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -30,12 +30,15 @@
             <ui:NavigationViewItem
                 IconSource="Home"
                 Content="Home" />
+            <ui:NavigationViewItem
+                IconSource="Wifi4"
+                Content="Wifi" />
         </ui:NavigationView.MenuItems>
         <ui:NavigationView.FooterMenuItems>
             <ui:NavigationViewItem
                 IconSource="Settings"
                 Content="Settings" />
         </ui:NavigationView.FooterMenuItems>
-        <ui:Frame CacheSize="2" Name="Frame" />
+        <ui:Frame Name="Frame" />
     </ui:NavigationView>
-</wnd:AppWindow>
+</Window>
