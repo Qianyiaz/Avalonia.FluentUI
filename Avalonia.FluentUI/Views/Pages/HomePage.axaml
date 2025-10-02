@@ -1,8 +1,8 @@
 <UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:vm="clr-namespace:Avalonia.FluentUI.ViewModels"
-    x:Class="Avalonia.FluentUI.Views.HomePage"
+    xmlns:vm="clr-namespace:Avalonia.FluentUI.ViewModels.Pages"
+    x:Class="Avalonia.FluentUI.Views.Pages.HomePage"
     x:DataType="vm:HomePageViewModel">
 
     <UserControl.DataContext>
