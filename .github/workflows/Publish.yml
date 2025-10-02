@@ -3,7 +3,7 @@ permissions:
   contents: write
 on:
   push:
-    paths: [ 'Avalonia.FluentUI/**','**/Publish.yml' ]
+    paths: [ 'Avalonia.FluentUI/**', '**/Publish.yml' ]
 jobs:
   publish:
     strategy:
@@ -24,41 +24,14 @@ jobs:
         with:
           path: ~/.nuget/packages
           key: nuget-cache-${{ matrix.platform }}
-      - run: dotnet publish -r ${{ matrix.runtime }} -p:PublishAot=true -p:TrimmerRemoveSymbols=true -p:OptimizationPreference=Size
-        if: matrix.platform != 'macos-latest'
-      - run: |
-          dotnet publish -t:BundleApp -r ${{ matrix.runtime }} -p:PublishAot=true -p:TrimmerRemoveSymbols=true -p:OptimizationPreference=Size -p:UseAppHost=true
+      - if: matrix.platform != 'macos-latest'
+        run: dotnet publish -r ${{ matrix.runtime }} -p:PublishAot=true -p:TrimMode=link -p:DebugType=none -p:DebugSymbols=false -p:StripSymbols=true -p:OptimizationPreference=Size ${{ matrix.platform == 'macos-latest' && '-t:BundleApp -p:UseAppHost=true' || '' }}
+      - if: matrix.platform == 'macos-latest'
+        run: |
           chmod +x "Avalonia.FluentUI/bin/Release/net9.0/${{ matrix.runtime }}/publish/Avalonia.FluentUI.app/Contents/MacOS/Avalonia.FluentUI"
           codesign --force --deep --sign - "Avalonia.FluentUI/bin/Release/net9.0/${{ matrix.runtime }}/publish/Avalonia.FluentUI.app"
           codesign --verify --verbose "Avalonia.FluentUI/bin/Release/net9.0/${{ matrix.runtime }}/publish/Avalonia.FluentUI.app"
-        if: matrix.platform == 'macos-latest'
       - uses: actions/upload-artifact@main
         with:
           name: Release-${{ matrix.runtime }}
-          path: |
-            ${{ matrix.platform == 'macos-latest' && '**/*.app' || '**/publish' }}
-            !**/*.dSYM
-            !**/*.pdb
-            !**/*.dbg
-  release:
-    needs: publish
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@main
-      - run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-      - uses: actions/download-artifact@main
-        with:
-          path: artifacts
-      - run: |
-          cd artifacts
-          for dir in */ ; do
-            zip -r "${dir%/}.zip" "$dir"
-          done
-      - uses: softprops/action-gh-release@master
-        with:
-          tag_name: action
-          prerelease: true
-          overwrite_files: true
-          files: artifacts/*.zip
+          path: ${{ matrix.platform == 'macos-latest' && '**/*.app' || '**/publish' }}

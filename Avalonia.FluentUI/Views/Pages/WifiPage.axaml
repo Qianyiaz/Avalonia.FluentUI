@@ -1,0 +1,106 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
+    xmlns:vm="clr-namespace:Avalonia.FluentUI.ViewModels.Pages"
+    x:Class="Avalonia.FluentUI.Views.Pages.WifiPage"
+    x:DataType="vm:WifiPageViewModel">
+
+    <UserControl.DataContext>
+        <vm:WifiPageViewModel />
+    </UserControl.DataContext>
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:WifiPageViewModel />
+    </Design.DataContext>
+
+    <UserControl.Styles>
+        <Style Selector="ListBoxItem">
+            <Setter Property="MinHeight" Value="55" />
+            <Style Selector="^[IsVisible=True]">
+                <Style.Animations>
+                    <Animation Duration="0:0:0.25" Easing="QuadraticEaseIn">
+                        <KeyFrame Cue="0%">
+                            <Setter Property="Opacity" Value="0" />
+                            <Setter Property="Margin" Value="50 0 0 0" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%">
+                            <Setter Property="Opacity" Value="1.0" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+            </Style>
+            <Style Selector="^ ToggleSwitch">
+                <Setter Property="Opacity" Value="0" />
+                <Setter Property="Margin" Value="0 5 0 0" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <DoubleTransition Property="Opacity" Duration="0:0:0.15" Easing="QuadraticEaseIn" />
+                        <ThicknessTransition Property="Margin" Duration="0:0:0.2" Easing="QuadraticEaseIn" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:selected ToggleSwitch">
+                <Setter Property="Opacity" Value="1" />
+                <Setter Property="Margin" Value="0 35 0 5" />
+            </Style>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid
+        Margin="0 8 0 0" RowDefinitions="Auto,*">
+        <StackPanel
+            Spacing="5"
+            Margin="0 0 5 0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <ToggleButton
+                Content="Multiple"
+                IsChecked="{Binding IsMultiple, Mode=TwoWay}"
+                Command="{Binding Multiple}"
+                CommandParameter="{Binding #ListBox}" />
+            <Button
+                Content="Reset"
+                Command="{Binding Reset}" />
+            <Button
+                Content="Rename"
+                CommandParameter="{Binding #ListBox.Selection}"
+                Command="{Binding Change}" />
+            <Button
+                Content="Add"
+                Command="{Binding Add}" />
+            <Button
+                Content="Remove"
+                IsEnabled="{Binding IsEnabled}"
+                CommandParameter="{Binding #ListBox.Selection}"
+                Command="{Binding Remove}" />
+        </StackPanel>
+        <ListBox
+            Grid.Row="1"
+            Name="ListBox"
+            SelectionMode="Toggle"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ItemsSource="{Binding Items}">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="vm:ConnectionItem">
+                    <Grid Margin="5">
+                        <StackPanel VerticalAlignment="Top" Spacing="5" Orientation="Horizontal">
+                            <ui:SymbolIcon
+                                FontSize="25"
+                                Symbol="WifiProtected" />
+                            <TextBlock
+                                FontSize="16"
+                                Text="{Binding Name}" />
+                        </StackPanel>
+
+                        <ToggleSwitch
+                            HorizontalAlignment="Right"
+                            IsChecked="{Binding IsChecked}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

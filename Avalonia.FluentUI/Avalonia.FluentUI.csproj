@@ -5,23 +5,14 @@
         <OutputType>WinExe</OutputType>
         <LangVersion>preview</LangVersion>
         <TargetFramework>net9.0</TargetFramework>
-        <ApplicationIcon>Assets\avalonia-logo.ico</ApplicationIcon>
+        <NoWarn>IL2057;IL2026;IL2104;IL3053</NoWarn>
+        <ApplicationIcon>Assets\app.ico</ApplicationIcon>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'">
-        <BundleVersion>1.0.1</BundleVersion>
-        <BundleName>Avalonia.FluentUI</BundleName>
-        <BundlePackageType>APPL</BundlePackageType>
-        <BundleId>com.Qianyiaz.Avalonia.FluentUI</BundleId>
-        <BundleDevelopmentRegion>en</BundleDevelopmentRegion>
-        <CFBundleShortVersionString>1.0</CFBundleShortVersionString>
-        <BundleCopyright>Copyright © Qianyiaz 2025</BundleCopyright>
-        <BundleCategory>public.app-category.productivity</BundleCategory>
-    </PropertyGroup>
-
-    <ItemGroup Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'">
-        <PackageReference Include="Dotnet.Bundle" Version="*"/>
+    <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+        <PackageReference Include="HotAvalonia" Version="*"/>
+        <PackageReference Include="Avalonia.Diagnostics" Version="*"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -29,11 +20,17 @@
         <PackageReference Include="Avalonia.Desktop" Version="*"/>
         <PackageReference Include="FluentAvaloniaUI" Version="*"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="*"/>
+        <PackageReference Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'" Include="Dotnet.Bundle" Version="*"/>
     </ItemGroup>
 
-    <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-        <PackageReference Include="HotAvalonia" Version="*"/>
-        <PackageReference Include="Avalonia.Diagnostics" Version="*"/>
-    </ItemGroup>
+    <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'">
+        <BundleVersion>1.0.1</BundleVersion>
+        <BundleName>Avalonia.FluentUI</BundleName>
+        <BundlePackageType>APPL</BundlePackageType>
+        <BundleId>com.Qianyiaz.Avalonia.FluentUI</BundleId>
+        <CFBundleShortVersionString>1.0</CFBundleShortVersionString>
+        <BundleCopyright>Copyright © Qianyiaz 2025</BundleCopyright>
+        <BundleCategory>public.app-category.productivity</BundleCategory>
+    </PropertyGroup>
 
 </Project>
