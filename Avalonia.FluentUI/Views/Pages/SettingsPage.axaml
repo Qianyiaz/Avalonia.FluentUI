@@ -1,8 +1,8 @@
 <UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ui="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
-    xmlns:vm="clr-namespace:Avalonia.FluentUI.ViewModels.Pages"
+    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
     x:DataType="vm:SettingsPageViewModel"
     x:Class="Avalonia.FluentUI.Views.Pages.SettingsPage">
 

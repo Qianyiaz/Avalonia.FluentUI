@@ -2,7 +2,6 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Reflection;
-using System.Threading.Tasks;
 using Avalonia.Styling;
 using FluentAvalonia.UI.Controls;
 
@@ -14,12 +13,12 @@ public partial class SettingsPageViewModel : ObservableObject
 
     public SettingsPageViewModel()
     {
-        SelectedItem = (string)Application.Current?.RequestedThemeVariant?.Key switch
+        SelectedItem = Application.Current?.RequestedThemeVariant?.Key switch
         {
             "Default" => ThemeItems[0],
             "Light" => ThemeItems[1],
             "Dark" => ThemeItems[2],
-            _ => throw new NullReferenceException()
+            _ => ThemeItems[0]
         };
     }
 
