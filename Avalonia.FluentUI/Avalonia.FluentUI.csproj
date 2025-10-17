@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <Version>1.0.1.1</Version>
+        <Version>1.0.1.2</Version>
+        <Authors>Qianyiaz</Authors>
         <OutputType>WinExe</OutputType>
         <LangVersion>preview</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
         <TargetFramework>net9.0</TargetFramework>
-        <NoWarn>IL2057;IL2026;IL2104;IL3053</NoWarn>
+        <ApplicationIcon>app.ico</ApplicationIcon>
         <Copyright>Copyright © Qianyiaz 2025</Copyright>
-        <ApplicationIcon>Assets\app.ico</ApplicationIcon>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
 
@@ -17,21 +18,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <AvaloniaResource Include="Assets\**"/>
-        <PackageReference Include="FluentAvaloniaUI" Version="2.4.0"/>
+        <AvaloniaResource Include="app.ico"/>
+        <PackageReference Include="ChmlFrp.SDK" Version="2.0.3"/>
         <PackageReference Include="Avalonia.Desktop" Version="11.3.7"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
-        <PackageReference Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'" Include="Dotnet.Bundle" Version="*"/>
+        <PackageReference Include="FluentAvaloniaUI.NoAnim" Version="2.4.0-build3"/>
+        <PackageReference Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'" Include="NeoBundle" Version="1.0.2.9"/>
     </ItemGroup>
-
-    <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'">
-        <BundleVersion>1.0.1.1</BundleVersion>
-        <BundleName>Avalonia.FluentUI</BundleName>
-        <BundlePackageType>APPL</BundlePackageType>
-        <BundleId>com.Qianyiaz.Avalonia.FluentUI</BundleId>
-        <CFBundleShortVersionString>1.0</CFBundleShortVersionString>
-        <BundleCopyright>Copyright © Qianyiaz 2025</BundleCopyright>
-        <BundleCategory>public.app-category.productivity</BundleCategory>
-    </PropertyGroup>
 
 </Project>

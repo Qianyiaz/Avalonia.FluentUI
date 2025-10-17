@@ -24,7 +24,7 @@ jobs:
         with:
           path: ~/.nuget/packages
           key: nuget-cache-${{ matrix.platform }}
-      - run: dotnet publish -r ${{ matrix.runtime }} -p:PublishAot=true -p:TrimMode=link -p:DebugType=none -p:DebugSymbols=false -p:StripSymbols=true -p:OptimizationPreference=Size ${{ matrix.platform == 'macos-latest' && '-t:BundleApp -p:UseAppHost=true' || '' }}
+      - run: dotnet publish -r ${{ matrix.runtime }} -p:PublishAot=true -p:TrimMode=link -p:DebugSymbols=false -p:OptimizationPreference=Size
       - if: matrix.platform == 'macos-latest'
         working-directory: 'Avalonia.FluentUI/bin/Release/net9.0/${{ matrix.runtime }}/publish'
         run: |

@@ -1,20 +1,19 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
 using Avalonia.FluentUI.Views.Pages;
-using Avalonia.Interactivity;
+using ChmlFrp.SDK.Results;
 using FluentAvalonia.UI.Controls;
-using FluentAvalonia.UI.Windowing;
 
 namespace Avalonia.FluentUI.Views.Windows;
 
-public partial class MainWindow : AppWindow
+public partial class MainWindow : Window
 {
     public MainWindow() =>
         InitializeComponent();
 
-    protected override void OnLoaded(RoutedEventArgs e)
+    protected override void OnOpened(EventArgs e)
     {
-        base.OnLoaded(e);
+        base.OnOpened(e);
+        Task.Run(BaseResult.WarmUpConnectionAsync);
         RootNavigation.SelectedItem = RootNavigation.MenuItems[0];
     }
 

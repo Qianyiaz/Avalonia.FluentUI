@@ -1,15 +1,14 @@
 <Window
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ui="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
-    xmlns:vm="clr-namespace:Avalonia.FluentUI.ViewModels.Windows"
+    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Windows"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
     x:Class="Avalonia.FluentUI.Views.Windows.MainWindow"
     x:DataType="vm:MainWindowViewModel"
-    TransparencyLevelHint="Mica,AcrylicBlur,None"
     Title="{Binding Title}"
-    MinHeight="200" MinWidth="285"
+    TransparencyLevelHint="Mica,AcrylicBlur,None"
     Background="Transparent"
-    Icon="/Assets/app.ico">
+    Icon="/app.ico">
 
     <Window.DataContext>
         <vm:MainWindowViewModel />

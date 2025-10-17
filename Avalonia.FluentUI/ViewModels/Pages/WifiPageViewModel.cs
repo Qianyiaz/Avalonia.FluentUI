@@ -1,7 +1,5 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Threading.Tasks;
 using Avalonia.Controls.Selection;
 using FluentAvalonia.UI.Controls;
 
@@ -58,7 +56,7 @@ public partial class WifiPageViewModel : ObservableObject
         IsEnabled = true;
     }
 
-    public async Task Change(ISelectionModel selectionModel)
+    public async Task Rename(ISelectionModel selectionModel)
     {
         var items = selectionModel.SelectedItems.OfType<ConnectionItem>().ToList();
         if (items.Count == 0) return;

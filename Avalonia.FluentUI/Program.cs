@@ -1,7 +1,4 @@
-﻿using System;
-using Avalonia.FluentUI.Views;
-
-namespace Avalonia.FluentUI;
+﻿namespace Avalonia.FluentUI;
 
 public static class Program
 {
@@ -15,6 +12,6 @@ public static class Program
 
     // Avalonia configuration, don't remove; also used by visual designer.
     private static AppBuilder BuildAvaloniaApp() =>
-        AppBuilder.Configure<App>()
+        AppBuilder.Configure<Views.App>()
             .UsePlatformDetect();
 }

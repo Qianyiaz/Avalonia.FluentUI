@@ -1,8 +1,6 @@
-using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Reflection;
-using System.Threading.Tasks;
 using Avalonia.Styling;
 using FluentAvalonia.UI.Controls;
 
@@ -11,17 +9,6 @@ namespace Avalonia.FluentUI.ViewModels.Pages;
 public partial class SettingsPageViewModel : ObservableObject
 {
     [ObservableProperty] private FAComboBoxItem _selectedItem;
-
-    public SettingsPageViewModel()
-    {
-        SelectedItem = (string)Application.Current?.RequestedThemeVariant?.Key switch
-        {
-            "Default" => ThemeItems[0],
-            "Light" => ThemeItems[1],
-            "Dark" => ThemeItems[2],
-            _ => throw new NullReferenceException()
-        };
-    }
 
     public static string Version => Assembly.GetEntryAssembly()?.GetName().Version?.ToString();
 
@@ -34,34 +21,21 @@ public partial class SettingsPageViewModel : ObservableObject
 
     partial void OnSelectedItemChanged(FAComboBoxItem value)
     {
-        if (value != null)
-            Application.Current?.RequestedThemeVariant = value.Content switch
-            {
-                "System" => ThemeVariant.Default,
-                "Light" => ThemeVariant.Light,
-                "Dark" => ThemeVariant.Dark,
-                _ => throw new NullReferenceException()
-            };
+        Application.Current?.RequestedThemeVariant = value.Content switch
+        {
+            "System" => ThemeVariant.Default,
+            "Light" => ThemeVariant.Light,
+            "Dark" => ThemeVariant.Dark,
+            _ => throw new NullReferenceException()
+        };
     }
 
-    public async Task OpenUrl()
+    public void OpenUrl()
     {
-        if (await new ContentDialog
-            {
-                Title = "Let's go ...",
-                Content = """
-                          This is a demo app for Avalonia.FluentUI.
-                          You can find the source code on GitHub.
-                          Feel free to star the repo if you like it!
-                          Thank you for using Avalonia.FluentUI! :-)
-                          """,
-                PrimaryButtonText = "Go! :-)",
-                CloseButtonText = "Leave me alone!"
-            }.ShowAsync() == ContentDialogResult.Primary)
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "https://github.com/Qianyiaz/Avalonia.FluentUI",
-                UseShellExecute = true
-            });
+        Process.Start(new ProcessStartInfo
+        {
+            FileName = "https://github.com/Qianyiaz/Avalonia.FluentUI",
+            UseShellExecute = true
+        });
     }
 }

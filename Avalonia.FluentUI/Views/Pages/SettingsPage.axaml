@@ -1,8 +1,8 @@
 <UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ui="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
-    xmlns:vm="clr-namespace:Avalonia.FluentUI.ViewModels.Pages"
+    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
     x:DataType="vm:SettingsPageViewModel"
     x:Class="Avalonia.FluentUI.Views.Pages.SettingsPage">
 
@@ -21,13 +21,14 @@
         <StackPanel
             VerticalAlignment="Top"
             Margin="8"
-            Spacing="8">
+            Spacing="5">
             <ui:SettingsExpander
                 Header="App Theme"
                 IconSource="DarkTheme"
                 Description="Change the current app theme">
                 <ui:SettingsExpander.Footer>
                     <ui:FAComboBox
+                        SelectedIndex="0"
                         ItemsSource="{Binding ThemeItems}"
                         SelectedValue="{Binding SelectedItem}" />
                 </ui:SettingsExpander.Footer>
@@ -37,7 +38,7 @@
                 Header="Avalonia.FluentUI"
                 Description="About the Avalonia.FluentUI library">
                 <ui:SettingsExpander.IconSource>
-                    <ui:ImageIconSource Source="/Assets/app.ico" />
+                    <ui:ImageIconSource Source="/app.ico" />
                 </ui:SettingsExpander.IconSource>
                 <ui:SettingsExpander.Footer>
                     <TextBlock
