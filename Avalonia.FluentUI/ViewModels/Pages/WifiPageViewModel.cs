@@ -1,17 +1,15 @@
-using System.Collections.ObjectModel;
-using System.Diagnostics.CodeAnalysis;
+using Avalonia.Collections;
 using Avalonia.Controls.Selection;
 using FluentAvalonia.UI.Controls;
 
 namespace Avalonia.FluentUI.ViewModels.Pages;
 
-[SuppressMessage("ReSharper", "StringLiteralTypo")]
 public partial class WifiPageViewModel : ObservableObject
 {
     [ObservableProperty] private bool _isEnabled = true;
     [ObservableProperty] private bool _isMultiple;
 
-    public ObservableCollection<ConnectionItem> Items { get; } =
+    public AvaloniaList<ConnectionItem> Items { get; } =
     [
         new() { Name = "QWHJVWw" },
         new() { Name = "HGGJVWw" },
@@ -28,12 +26,14 @@ public partial class WifiPageViewModel : ObservableObject
 
     public void Reset()
     {
-        Items.Clear();
-        Items.Add(new ConnectionItem { Name = "QWHJVWw" });
-        Items.Add(new ConnectionItem { Name = "HGGJVWw" });
-        Items.Add(new ConnectionItem { Name = "HwdWJBH" });
-        Items.Add(new ConnectionItem { Name = "wddwaWw" });
-        Items.Add(new ConnectionItem { Name = "JBLGhww" });
+        Items.RemoveRange(0,Items.Count);
+        Items.AddRange([
+            new (){ Name = "QWHJVWw" },
+            new () { Name = "HGGJVWw" },
+            new () { Name = "HwdWJBH" },
+            new () { Name = "wddwaWw" },
+            new () { Name = "JBLGhww" }
+        ]);
         IsEnabled = true;
     }
 
@@ -73,14 +73,12 @@ public partial class WifiPageViewModel : ObservableObject
                 CloseButtonText = "Cancel"
             }.ShowAsync() != ContentDialogResult.Primary) return;
         if (string.IsNullOrWhiteSpace(textBox.Text)) return;
-        foreach (var item in items)
-            item.Name = textBox.Text;
+        items.ForEach(item => item.Name = textBox.Text);
     }
 
     public void Remove(ISelectionModel selectionModel)
     {
-        foreach (var item in selectionModel.SelectedItems.OfType<ConnectionItem>().ToList())
-            Items.Remove(item);
+        Items.RemoveAll(selectionModel.SelectedItems.OfType<ConnectionItem>().ToList());
         if (Items.Count == 0)
             IsEnabled = false;
     }
