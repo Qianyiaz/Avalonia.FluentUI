@@ -20,7 +20,7 @@
     <ItemGroup>
         <AvaloniaResource Include="app.ico"/>
         <PackageReference Include="ChmlFrp.SDK" Version="2.0.3"/>
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.7"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.8"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
         <PackageReference Include="FluentAvaloniaUI.NoAnim" Version="2.4.0-build3"/>
         <PackageReference Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'" Include="NeoBundle" Version="1.0.2.9"/>
