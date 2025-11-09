@@ -25,7 +25,7 @@
             <ui:SettingsExpander
                 Header="App Theme"
                 IconSource="DarkTheme"
-                Description="Change the current app theme">
+                Description="Change the current app theme.">
                 <ui:SettingsExpander.Footer>
                     <ui:FAComboBox
                         SelectedValue="{CompiledBinding SelectedValue}">
@@ -40,15 +40,17 @@
 
             <ui:SettingsExpander
                 Header="Avalonia.FluentUI"
-                Description="About the Avalonia.FluentUI library">
+                Description="A modern cross-platform desktop application built with the Avalonia UI framework and FluentAvalonia design system.">
                 <ui:SettingsExpander.IconSource>
                     <ui:ImageIconSource Source="/app.ico" />
                 </ui:SettingsExpander.IconSource>
+                
                 <ui:SettingsExpander.Footer>
                     <TextBlock
                         Foreground="{DynamicResource TextControlForegroundDisabled}"
                         Text="{CompiledBinding Version}" />
                 </ui:SettingsExpander.Footer>
+                
                 <ui:SettingsExpanderItem
                     IsClickEnabled="True"
                     Content="Check out repo on Github"

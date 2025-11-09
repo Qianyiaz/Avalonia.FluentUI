@@ -42,7 +42,7 @@
         RowDefinitions="Auto,*">
         <StackPanel
             Spacing="5"
-            Margin="0 0 5 0"
+            Margin="5"
             HorizontalAlignment="Right"
             Orientation="Horizontal">
             <ToggleButton
@@ -79,7 +79,7 @@
             ItemsSource="{CompiledBinding Items}">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="vm:ConnectionItem">
-                    <Grid Margin="8">
+                    <Panel Margin="8">
                         <StackPanel VerticalAlignment="Top" Spacing="5" Orientation="Horizontal">
                             <ui:SymbolIcon
                                 FontSize="28"
@@ -94,7 +94,7 @@
                         <ToggleSwitch
                             HorizontalAlignment="Right"
                             IsChecked="{CompiledBinding IsChecked}" />
-                    </Grid>
+                    </Panel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

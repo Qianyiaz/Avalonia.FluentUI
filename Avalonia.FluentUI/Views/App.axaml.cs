@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.FluentUI.Views.Windows;
@@ -11,14 +12,12 @@ namespace Avalonia.FluentUI.Views;
 
 public class App : Application
 {
-    public override void Initialize() =>
-        AvaloniaXamlLoader.Load(this);
-
+    public override void Initialize() => AvaloniaXamlLoader.Load(this);
+    
     public override void OnFrameworkInitializationCompleted()
     {
-        // If you use CommunityToolkit, line below is needed to remove Avalonia data validation.
-        // Without this line you will get duplicate validations from both Avalonia and CT
-        BindingPlugins.DataValidators.Clear();
+        foreach (var plugin in BindingPlugins.DataValidators.OfType<DataAnnotationsValidationPlugin>().ToArray())
+            BindingPlugins.DataValidators.Remove(plugin);
         
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             desktop.MainWindow = new MainWindow

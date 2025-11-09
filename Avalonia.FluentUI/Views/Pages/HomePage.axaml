@@ -16,25 +16,23 @@
     </Design.DataContext>
 
     <Border
+        Padding="25"
         HorizontalAlignment="Center"
         VerticalAlignment="Center"
         Background="{DynamicResource ButtonBackground}"
-        CornerRadius="{DynamicResource OverlayCornerRadius}"
-        Padding="25">
+        CornerRadius="{DynamicResource OverlayCornerRadius}">
         <StackPanel
             Spacing="15">
             <TextBlock
                 FontSize="25"
-                TextWrapping="WrapWithOverflow"
-                Text="This is HomePage." />
+                Text="This is HomePage."
+                TextWrapping="WrapWithOverflow" />
             
-            <!-- ReSharper disable once Xaml.StyleClassNotFound -->
             <Button
                 Classes="accent"
+                Content="Count"
                 CommandParameter="{CompiledBinding $self}"
-                Command="{CompiledBinding CountCommand}">
-                Click Me.
-            </Button>
+                Command="{CompiledBinding CountCommand}" />
         </StackPanel>
     </Border>
 </UserControl>

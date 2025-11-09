@@ -7,7 +7,7 @@ namespace Avalonia.FluentUI.ViewModels.Pages;
 public partial class SettingsPageViewModel : ObservableObject
 {
     public static string Version => Assembly.GetEntryAssembly()?.GetName().Version?.ToString();
-
+    
     [ObservableProperty] private string _selectedValue = "System";
 
     partial void OnSelectedValueChanged(string value)
