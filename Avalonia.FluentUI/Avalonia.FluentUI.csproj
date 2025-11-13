@@ -6,7 +6,7 @@
         <OutputType>WinExe</OutputType>
         <LangVersion>preview</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <ApplicationIcon>app.ico</ApplicationIcon>
         <Copyright>Copyright © Qianyiaz 2025</Copyright>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>

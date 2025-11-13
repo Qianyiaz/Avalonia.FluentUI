@@ -1,6 +1,6 @@
 name: Project Publishing
 permissions:
-  contents: write
+  contents: read
 on:
   push:
     paths: [ 'Avalonia.FluentUI/**', '**/Publish.yml' ]
@@ -19,18 +19,19 @@ jobs:
             runtime: osx-arm64
     runs-on: ${{ matrix.platform }}
     steps:
-      - uses: actions/checkout@main
-      - uses: actions/cache@main
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
         with:
-          path: ~/.nuget/packages
-          key: nuget-cache-${{ matrix.platform }}
+          cache: true
+          dotnet-version: '10.x'
+          cache-dependency-path: '**/*.csproj'
       - run: dotnet publish -r ${{ matrix.runtime }} -p:PublishAot=true -p:OptimizationPreference=Speed -p:DebugSymbols=false
       - if: matrix.platform == 'macos-latest'
-        working-directory: 'Avalonia.FluentUI/bin/Release/net9.0/${{ matrix.runtime }}/publish'
+        working-directory: 'Avalonia.FluentUI/bin/Release/net10.0/${{ matrix.runtime }}/publish'
         run: |
           chmod +x Avalonia.FluentUI.app/Contents/MacOS/Avalonia.FluentUI
           codesign --force --deep --sign - Avalonia.FluentUI.app
-      - uses: actions/upload-artifact@main
+      - uses: actions/upload-artifact@v5
         with:
           name: Release-${{ matrix.runtime }}
           path: |

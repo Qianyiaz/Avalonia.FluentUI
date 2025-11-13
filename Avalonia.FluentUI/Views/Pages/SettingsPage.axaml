@@ -28,7 +28,7 @@
                 Description="Change the current app theme.">
                 <ui:SettingsExpander.Footer>
                     <ui:FAComboBox
-                        SelectedValue="{CompiledBinding SelectedValue}">
+                        SelectedValue="{CompiledBinding ThemeVariantValue}">
                         <ui:FAComboBox.Items>
                             <x:String>System</x:String>
                             <x:String>Light</x:String>
@@ -37,7 +37,7 @@
                     </ui:FAComboBox>
                 </ui:SettingsExpander.Footer>
             </ui:SettingsExpander>
-
+            
             <ui:SettingsExpander
                 Header="Avalonia.FluentUI"
                 Description="A modern cross-platform desktop application built with the Avalonia UI framework and FluentAvalonia design system.">
