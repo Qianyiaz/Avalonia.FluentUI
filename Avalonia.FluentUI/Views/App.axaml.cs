@@ -1,6 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core.Plugins;
 using Avalonia.FluentUI.Views.Windows;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
@@ -16,9 +14,6 @@ public class App : Application
     
     public override void OnFrameworkInitializationCompleted()
     {
-        foreach (var plugin in BindingPlugins.DataValidators.OfType<DataAnnotationsValidationPlugin>().ToArray())
-            BindingPlugins.DataValidators.Remove(plugin);
-        
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             desktop.MainWindow = new MainWindow
             {

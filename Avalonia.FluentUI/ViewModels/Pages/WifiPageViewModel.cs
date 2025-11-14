@@ -1,5 +1,6 @@
 using Avalonia.Collections;
 using Avalonia.Controls.Selection;
+using Avalonia.FluentUI.Models;
 using CommunityToolkit.Mvvm.Input;
 
 namespace Avalonia.FluentUI.ViewModels.Pages;
@@ -7,6 +8,7 @@ namespace Avalonia.FluentUI.ViewModels.Pages;
 public partial class WifiPageViewModel : ObservableObject
 {
     [ObservableProperty] private bool _isMultiple;
+
     [ObservableProperty] private bool _isEnabled = true;
 
     public AvaloniaList<ConnectionItem> Items { get; } =
@@ -29,7 +31,8 @@ public partial class WifiPageViewModel : ObservableObject
     private void Reset()
     {
         Items.Clear();
-        Items.AddRange([
+        Items.AddRange(
+        [
             new (){ Name = "QWHJVWw" },
             new () { Name = "HGGJVWw" },
             new () { Name = "HwdWJBH" },
@@ -47,6 +50,7 @@ public partial class WifiPageViewModel : ObservableObject
             Watermark = "Enter SSID",
             Width = 300
         };
+        
         if (await new ContentDialog
             {
                 Title = "Add New Connection",
@@ -68,30 +72,15 @@ public partial class WifiPageViewModel : ObservableObject
     {
         var items = selectionModel.SelectedItems.OfType<ConnectionItem>().ToList();
 
-        TextBox textBox;
-        switch (items.Count)
+        if (items.Count == 0)
+            return;
+
+        var textBox = new TextBox
         {
-            case 0:
-                return;
-            
-            case 1:
-                textBox = new()
-                {
-                    Watermark = "Enter new SSID",
-                    Text = items[0].Name,
-                    Width = 300
-                };
-                break;
-            
-            default:
-                textBox = new()
-                {
-                    Watermark = "Enter new SSID for selected connections",
-                    Width = 300
-                };
-                break;
-        }
-        
+            Watermark = "Enter new SSID for selected connections",
+            Width = 300
+        };
+
         if (await new ContentDialog
             {
                 Title = "Rename connection(s)",
@@ -108,23 +97,6 @@ public partial class WifiPageViewModel : ObservableObject
     private void Remove(ISelectionModel selectionModel)
     {
         Items.RemoveAll(selectionModel.SelectedItems.OfType<ConnectionItem>());
-      
-        if (Items.Count == 0)
-            IsEnabled = false;
+        IsEnabled = Items.Count != 0;
     }
-}
-
-public partial class ConnectionItem : ObservableObject
-{
-    [ObservableProperty] private bool _isChecked;
-    [ObservableProperty] private string _name;
-
-    /*
-    partial void OnIsCheckedChanged(bool value)
-    {
-        if (value)
-        {
-        }
-    }
-    */
 }

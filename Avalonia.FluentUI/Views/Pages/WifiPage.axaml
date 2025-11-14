@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:models="using:Avalonia.FluentUI.Models"
     x:Class="Avalonia.FluentUI.Views.Pages.WifiPage"
     x:DataType="vm:WifiPageViewModel">
 
@@ -78,15 +79,17 @@
             ScrollViewer.VerticalScrollBarVisibility="Auto"
             ItemsSource="{CompiledBinding Items}">
             <ListBox.ItemTemplate>
-                <DataTemplate DataType="vm:ConnectionItem">
+                <DataTemplate DataType="models:ConnectionItem">
                     <Panel Margin="8">
                         <StackPanel VerticalAlignment="Top" Spacing="5" Orientation="Horizontal">
                             <ui:SymbolIcon
                                 FontSize="28"
-                                Symbol="WifiProtected" />
+                                Symbol="WifiProtected"
+                                IsHitTestVisible="False" />
                             
                             <TextBlock
                                 FontSize="16"
+                                IsHitTestVisible="False"
                                 VerticalAlignment="Center"
                                 Text="{CompiledBinding Name}" />
                         </StackPanel>

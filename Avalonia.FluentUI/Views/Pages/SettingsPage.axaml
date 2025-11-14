@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
-    x:DataType="vm:SettingsPageViewModel"
-    x:Class="Avalonia.FluentUI.Views.Pages.SettingsPage">
+    x:Class="Avalonia.FluentUI.Views.Pages.SettingsPage"
+    x:DataType="vm:SettingsPageViewModel">
 
     <UserControl.DataContext>
         <vm:SettingsPageViewModel />
