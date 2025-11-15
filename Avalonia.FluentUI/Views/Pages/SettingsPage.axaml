@@ -46,9 +46,9 @@
                 </ui:SettingsExpander.IconSource>
                 
                 <ui:SettingsExpander.Footer>
-                    <TextBlock
+                    <SelectableTextBlock
                         Foreground="{DynamicResource TextControlForegroundDisabled}"
-                        Text="{CompiledBinding Version}" />
+                        Text="{CompiledBinding Version,StringFormat='{}Version: {0}'}" />
                 </ui:SettingsExpander.Footer>
                 
                 <ui:SettingsExpanderItem

@@ -4,7 +4,7 @@
     xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
     xmlns:models="using:Avalonia.FluentUI.Models"
-    x:Class="Avalonia.FluentUI.Views.Pages.WifiPage"
+    x:Class="Avalonia.FluentUI.Views.Pages.ListBoxPage"
     x:DataType="vm:WifiPageViewModel">
 
     <UserControl.DataContext>
@@ -86,12 +86,12 @@
                                 FontSize="28"
                                 Symbol="WifiProtected"
                                 IsHitTestVisible="False" />
-                            
-                            <TextBlock
+
+                            <SelectableTextBlock
                                 FontSize="16"
-                                IsHitTestVisible="False"
                                 VerticalAlignment="Center"
-                                Text="{CompiledBinding Name}" />
+                                Text="{CompiledBinding Name}"
+                                ToolTip.Tip="{CompiledBinding Name}" />
                         </StackPanel>
 
                         <ToggleSwitch

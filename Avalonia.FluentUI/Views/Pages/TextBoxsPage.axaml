@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Avalonia.FluentUI.Views.Pages.TextBoxsPage">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="10" Spacing="10">
+            <TextBlock
+                Text="TextBoxs"
+                FontSize="45" />
+
+            <TextBox
+                ToolTip.Tip="A tooltip."
+                Watermark="I am a TextBox with a watermark and a tooltip." />
+
+            <TextBox
+                Name="Password"
+                PasswordChar="*"
+                ToolTip.Tip="A tooltip."
+                Watermark="I am a PasswordBox with a watermark and a tooltip." />
+
+            <SelectableTextBlock
+                TextWrapping="Wrap"
+                Text="{CompiledBinding #Password.Text,StringFormat='{}Password is {0}'}" />
+
+            <TextBox
+                Height="100"
+                AcceptsReturn="True"
+                Text="This is a multi-line TextBox. You can type multiple lines of text here." />
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

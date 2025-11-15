@@ -15,7 +15,8 @@ public partial class MainWindow : AppWindow
     }
 
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(HomePage))]
-    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(WifiPage))]
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(ListBoxPage))]
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(TextBoxsPage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(SettingsPage))]
     private void OnSelectionChanged(object sender, NavigationViewSelectionChangedEventArgs e)
     {
@@ -26,7 +27,8 @@ public partial class MainWindow : AppWindow
             item.Content switch
             {
                 "Home" => typeof(HomePage),
-                "Wifi" => typeof(WifiPage),
+                "ListBox" => typeof(ListBoxPage),
+                "TextBoxs" => typeof(TextBoxsPage),
                 "Settings" => typeof(SettingsPage),
                 _ => throw new NotImplementedException()
             }
