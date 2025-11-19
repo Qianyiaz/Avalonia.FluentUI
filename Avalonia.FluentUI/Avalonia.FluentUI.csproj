@@ -19,7 +19,7 @@
     <ItemGroup>
         <AvaloniaResource Include="app.ico"/>
         <PackageReference Include="FluentAvaloniaUI" Version="2.4.1"/>
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.8"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.9"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
         <PackageReference Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'" Include="NeoBundle" Version="1.0.3"/>
     </ItemGroup>
