@@ -19,7 +19,7 @@
 
             <SelectableTextBlock
                 TextWrapping="Wrap"
-                Text="{CompiledBinding #Password.Text,StringFormat='{}Password is {0}'}" />
+                Text="{Binding #Password.Text,StringFormat='{}Password is {0}'}" />
 
             <TextBox
                 Height="100"

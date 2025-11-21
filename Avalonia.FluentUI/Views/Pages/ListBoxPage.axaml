@@ -48,36 +48,33 @@
             Orientation="Horizontal">
             <ToggleButton
                 Content="Multiple"
-                IsChecked="{CompiledBinding IsMultiple}"
-                Command="{CompiledBinding MultipleCommand}"
-                CommandParameter="{CompiledBinding #ListBox}" />
+                IsChecked="{Binding IsMultiple}"
+                Command="{Binding MultipleCommand}" />
             
             <Button
                 Content="Add"
-                Command="{CompiledBinding AddCommand}" />
+                Command="{Binding AddCommand}" />
             
             <Button
                 Content="Reset"
-                Command="{CompiledBinding ResetCommand}" />
+                Command="{Binding ResetCommand}" />
             
             <Button
                 Content="Rename"
-                Command="{CompiledBinding RenameCommand}"
-                CommandParameter="{CompiledBinding #ListBox.Selection}" />
+                Command="{Binding RenameCommand}" />
             
             <Button
                 Content="Remove"
-                IsEnabled="{CompiledBinding IsEnabled}"
-                Command="{CompiledBinding RemoveCommand}"
-                CommandParameter="{CompiledBinding #ListBox.Selection}" />
+                IsEnabled="{Binding IsEnabled}"
+                Command="{Binding RemoveCommand}" />
         </StackPanel>
         
         <ListBox
             Grid.Row="1"
-            Name="ListBox"
-            SelectionMode="Toggle"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
-            ItemsSource="{CompiledBinding Items}">
+            ItemsSource="{Binding Items}"
+            Selection="{Binding SelectionModel}"
+            SelectionMode="{Binding ListBoxSelectionMode}">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="models:ConnectionItem">
                     <Panel Margin="8">
@@ -90,13 +87,13 @@
                             <SelectableTextBlock
                                 FontSize="16"
                                 VerticalAlignment="Center"
-                                Text="{CompiledBinding Name}"
-                                ToolTip.Tip="{CompiledBinding Name}" />
+                                Text="{Binding Name}"
+                                ToolTip.Tip="{Binding Name}" />
                         </StackPanel>
 
                         <ToggleSwitch
                             HorizontalAlignment="Right"
-                            IsChecked="{CompiledBinding IsChecked}" />
+                            IsChecked="{Binding IsChecked}" />
                     </Panel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

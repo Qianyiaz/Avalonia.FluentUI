@@ -15,8 +15,8 @@ public partial class SettingsPageViewModel : ObservableObject
             _ => "System"
         };
     }
-    
-    public static string Version =>
+
+    public static string? Version =>
         Assembly.GetEntryAssembly()?.GetName().Version?.ToString();
 
     [ObservableProperty] private string _themeVariantValue;

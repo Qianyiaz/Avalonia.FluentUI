@@ -5,7 +5,7 @@
     xmlns:ui="using:FluentAvalonia.UI.Controls"
     x:Class="Avalonia.FluentUI.Views.Windows.MainWindow"
     x:DataType="vm:MainWindowViewModel"
-    Title="{CompiledBinding Title}"
+    Title="{Binding Title}"
     TransparencyLevelHint="Mica,AcrylicBlur,None"
     Background="Transparent"
     Icon="/app.ico">

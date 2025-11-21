@@ -11,6 +11,10 @@ public partial class WifiPageViewModel : ObservableObject
 
     [ObservableProperty] private bool _isEnabled = true;
 
+    [ObservableProperty] private SelectionMode _listBoxSelectionMode = SelectionMode.Toggle;
+
+    [ObservableProperty] private ISelectionModel? _selectionModel;
+
     public AvaloniaList<ConnectionItem> Items { get; } =
     [
         new() { Name = "QWHJVWw" },
@@ -21,10 +25,10 @@ public partial class WifiPageViewModel : ObservableObject
     ];
 
     [RelayCommand]
-    private void Multiple(ListBox listBox)
+    private void Multiple()
     {
-        listBox.SelectionMode = SelectionMode.Toggle;
-        listBox.SelectionMode |= IsMultiple ? SelectionMode.Multiple : SelectionMode.Single;
+        ListBoxSelectionMode = SelectionMode.Toggle;
+        ListBoxSelectionMode |= IsMultiple ? SelectionMode.Multiple : SelectionMode.Single;
     }
 
     [RelayCommand]
@@ -68,9 +72,9 @@ public partial class WifiPageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async Task Rename(ISelectionModel selectionModel)
+    private async Task Rename()
     {
-        var items = selectionModel.SelectedItems.OfType<ConnectionItem>().ToList();
+        var items = SelectionModel!.SelectedItems.OfType<ConnectionItem>().ToList();
 
         if (items.Count == 0)
             return;
@@ -94,9 +98,9 @@ public partial class WifiPageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private void Remove(ISelectionModel selectionModel)
+    private void Remove()
     {
-        Items.RemoveAll(selectionModel.SelectedItems.OfType<ConnectionItem>());
+        Items.RemoveAll(SelectionModel!.SelectedItems.OfType<ConnectionItem>());
         IsEnabled = Items.Count != 0;
     }
 }

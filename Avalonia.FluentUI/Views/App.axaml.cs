@@ -31,12 +31,12 @@ public class App : Application
 internal class SplashScreen : IApplicationSplashScreen
 {
     // ReSharper disable once UnassignedGetOnlyAutoProperty
-    public string AppName { get; }
+    public string? AppName { get; }
     
-    public IImage AppIcon { get; init; }
+    public IImage? AppIcon { get; init; }
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
-    public object SplashScreenContent { get; }
+    public object? SplashScreenContent { get; }
     
     // To avoid too quickly transitioning away from the splash screen, you can set a minimum
     // time to hold before loading the content, value is in Milliseconds

@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <Version>1.0.1.4</Version>
+        <Nullable>enable</Nullable>
         <OutputType>WinExe</OutputType>
         <LangVersion>preview</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -21,7 +22,7 @@
         <PackageReference Include="FluentAvaloniaUI" Version="2.4.1"/>
         <PackageReference Include="Avalonia.Desktop" Version="11.3.9"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
-        <PackageReference Condition="'$(RuntimeIdentifier)' == 'osx-x64' or '$(RuntimeIdentifier)' == 'osx-arm64'" Include="NeoBundle" Version="1.0.3"/>
+        <PackageReference Condition="$(RuntimeIdentifier.StartsWith('osx'))" Include="NeoBundle" Version="1.0.3"/>
     </ItemGroup>
 
 </Project>

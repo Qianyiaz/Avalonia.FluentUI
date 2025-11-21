@@ -30,9 +30,8 @@
             
             <Button
                 Classes="accent"
-                Content="Count"
-                CommandParameter="{CompiledBinding $self}"
-                Command="{CompiledBinding CountCommand}" />
+                Content="{Binding CountButtonText}"
+                Command="{Binding CountCommand}" />
         </StackPanel>
     </Border>
 </UserControl>
