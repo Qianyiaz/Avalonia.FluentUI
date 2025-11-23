@@ -1,5 +1,4 @@
 using Avalonia.Collections;
-using Avalonia.Controls.Selection;
 using Avalonia.FluentUI.Models;
 using CommunityToolkit.Mvvm.Input;
 
@@ -11,9 +10,9 @@ public partial class WifiPageViewModel : ObservableObject
 
     [ObservableProperty] private bool _isEnabled = true;
 
-    [ObservableProperty] private SelectionMode _listBoxSelectionMode = SelectionMode.Toggle;
-
-    [ObservableProperty] private ISelectionModel? _selectionModel;
+    [ObservableProperty] private SelectionMode _selectionMode = SelectionMode.Toggle;
+    
+    public AvaloniaList<ConnectionItem>? SelectionItems { get; } = [];
 
     public AvaloniaList<ConnectionItem> Items { get; } =
     [
@@ -27,8 +26,8 @@ public partial class WifiPageViewModel : ObservableObject
     [RelayCommand]
     private void Multiple()
     {
-        ListBoxSelectionMode = SelectionMode.Toggle;
-        ListBoxSelectionMode |= IsMultiple ? SelectionMode.Multiple : SelectionMode.Single;
+        SelectionMode = SelectionMode.Toggle;
+        SelectionMode |= IsMultiple ? SelectionMode.Multiple : SelectionMode.Single;
     }
 
     [RelayCommand]
@@ -74,9 +73,7 @@ public partial class WifiPageViewModel : ObservableObject
     [RelayCommand]
     private async Task Rename()
     {
-        var items = SelectionModel!.SelectedItems.OfType<ConnectionItem>().ToList();
-
-        if (items.Count == 0)
+        if (SelectionItems!.Count == 0)
             return;
 
         var textBox = new TextBox
@@ -94,13 +91,14 @@ public partial class WifiPageViewModel : ObservableObject
             }.ShowAsync() != ContentDialogResult.Primary) return;
         if (string.IsNullOrWhiteSpace(textBox.Text)) return;
         
-        items.ForEach(item => item.Name = textBox.Text);
+        foreach (var item in SelectionItems!)
+            item.Name = textBox.Text;
     }
 
     [RelayCommand]
     private void Remove()
     {
-        Items.RemoveAll(SelectionModel!.SelectedItems.OfType<ConnectionItem>());
+        Items.RemoveAll(SelectionItems!);
         IsEnabled = Items.Count != 0;
     }
 }

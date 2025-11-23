@@ -73,8 +73,8 @@
             Grid.Row="1"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
             ItemsSource="{Binding Items}"
-            Selection="{Binding SelectionModel}"
-            SelectionMode="{Binding ListBoxSelectionMode}">
+            SelectedItems="{Binding SelectionItems}"
+            SelectionMode="{Binding SelectionMode}">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="models:ConnectionItem">
                     <Panel Margin="8">
