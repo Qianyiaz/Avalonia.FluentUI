@@ -1,10 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using Avalonia.FluentUI.Views.Pages;
-using FluentAvalonia.UI.Windowing;
 
 namespace Avalonia.FluentUI.Views.Windows;
 
-public partial class MainWindow : AppWindow
+public partial class MainWindow : Window
 {
     public MainWindow() => InitializeComponent();
 
