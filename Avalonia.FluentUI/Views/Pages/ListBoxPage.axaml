@@ -22,7 +22,7 @@
             <Setter Property="MinHeight" Value="60" />
             <Style Selector="^ ToggleSwitch">
                 <Setter Property="Opacity" Value="0" />
-                <Setter Property="IsHitTestVisible" Value="False"/>
+                <Setter Property="IsHitTestVisible" Value="False" />
                 <Setter Property="Transitions">
                     <Transitions>
                         <DoubleTransition Property="Opacity" Duration="0:0:0.1" Easing="QuadraticEaseIn" />
@@ -32,7 +32,7 @@
             </Style>
             <Style Selector="^:selected ToggleSwitch">
                 <Setter Property="Opacity" Value="1" />
-                <Setter Property="IsHitTestVisible" Value="True"/>
+                <Setter Property="IsHitTestVisible" Value="True" />
                 <Setter Property="Margin" Value="0 35 0 0" />
             </Style>
         </Style>
@@ -50,25 +50,25 @@
                 Content="Multiple"
                 IsChecked="{Binding IsMultiple}"
                 Command="{Binding MultipleCommand}" />
-            
+
             <Button
                 Content="Add"
                 Command="{Binding AddCommand}" />
-            
+
             <Button
                 Content="Reset"
                 Command="{Binding ResetCommand}" />
-            
+
             <Button
                 Content="Rename"
                 Command="{Binding RenameCommand}" />
-            
+
             <Button
                 Content="Remove"
                 IsEnabled="{Binding IsEnabled}"
                 Command="{Binding RemoveCommand}" />
         </StackPanel>
-        
+
         <ListBox
             Grid.Row="1"
             ScrollViewer.VerticalScrollBarVisibility="Auto"

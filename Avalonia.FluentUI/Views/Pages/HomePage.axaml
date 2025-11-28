@@ -27,7 +27,7 @@
                 FontSize="25"
                 Text="This is HomePage."
                 TextWrapping="WrapWithOverflow" />
-            
+
             <Button
                 Classes="accent"
                 Content="{Binding CountButtonText}"

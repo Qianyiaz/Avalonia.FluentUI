@@ -1,4 +1,6 @@
-﻿namespace Avalonia.FluentUI;
+﻿using Avalonia.FluentUI.Views;
+
+namespace Avalonia.FluentUI;
 
 public static class Program
 {
@@ -6,12 +8,16 @@ public static class Program
     // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
     // yet and stuff might break.
     [STAThread]
-    public static void Main(string[] args) =>
+    public static void Main(string[] args)
+    {
         BuildAvaloniaApp()
             .StartWithClassicDesktopLifetime(args);
+    }
 
     // Avalonia configuration, don't remove; also used by visual designer.
-    private static AppBuilder BuildAvaloniaApp() =>
-        AppBuilder.Configure<Views.App>()
+    private static AppBuilder BuildAvaloniaApp()
+    {
+        return AppBuilder.Configure<App>()
             .UsePlatformDetect();
+    }
 }

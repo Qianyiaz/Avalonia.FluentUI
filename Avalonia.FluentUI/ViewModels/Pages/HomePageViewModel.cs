@@ -4,9 +4,8 @@ namespace Avalonia.FluentUI.ViewModels.Pages;
 
 public partial class HomePageViewModel : ObservableObject
 {
-    private int _i;
-
     [ObservableProperty] private string _countButtonText = "Count";
+    private int _i;
 
     [RelayCommand]
     private void Count()

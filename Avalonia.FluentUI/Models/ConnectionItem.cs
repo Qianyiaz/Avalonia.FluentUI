@@ -2,9 +2,8 @@ namespace Avalonia.FluentUI.Models;
 
 public partial class ConnectionItem : ObservableObject
 {
-    [ObservableProperty] private string? _name;
-
     [ObservableProperty] private bool _isChecked;
+    [ObservableProperty] private string? _name;
 
     partial void OnIsCheckedChanged(bool value)
     {

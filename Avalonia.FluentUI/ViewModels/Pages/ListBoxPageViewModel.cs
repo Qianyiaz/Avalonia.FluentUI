@@ -6,12 +6,11 @@ namespace Avalonia.FluentUI.ViewModels.Pages;
 
 public partial class WifiPageViewModel : ObservableObject
 {
+    [ObservableProperty] private bool _isEnabled = true;
     [ObservableProperty] private bool _isMultiple;
 
-    [ObservableProperty] private bool _isEnabled = true;
-
     [ObservableProperty] private SelectionMode _selectionMode = SelectionMode.Toggle;
-    
+
     public AvaloniaList<ConnectionItem>? SelectionItems { get; } = [];
 
     public AvaloniaList<ConnectionItem> Items { get; } =
@@ -36,11 +35,11 @@ public partial class WifiPageViewModel : ObservableObject
         Items.Clear();
         Items.AddRange(
         [
-            new (){ Name = "QWHJVWw" },
-            new () { Name = "HGGJVWw" },
-            new () { Name = "HwdWJBH" },
-            new () { Name = "wddwaWw" },
-            new () { Name = "JBLGhww" }
+            new() { Name = "QWHJVWw" },
+            new() { Name = "HGGJVWw" },
+            new() { Name = "HwdWJBH" },
+            new() { Name = "wddwaWw" },
+            new() { Name = "JBLGhww" }
         ]);
         IsEnabled = true;
     }
@@ -53,7 +52,7 @@ public partial class WifiPageViewModel : ObservableObject
             Watermark = "Enter SSID",
             Width = 300
         };
-        
+
         if (await new ContentDialog
             {
                 Title = "Add New Connection",
@@ -90,7 +89,7 @@ public partial class WifiPageViewModel : ObservableObject
                 CloseButtonText = "Cancel"
             }.ShowAsync() != ContentDialogResult.Primary) return;
         if (string.IsNullOrWhiteSpace(textBox.Text)) return;
-        
+
         foreach (var item in SelectionItems!)
             item.Name = textBox.Text;
     }
