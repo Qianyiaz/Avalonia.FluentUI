@@ -22,11 +22,10 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/cache@v4
         with:
-          cache: true
-          dotnet-version: '10.x'
-          cache-dependency-path: '**/*.csproj'
+          path: ~/.nuget/packages
+          key: nuget-cache-${{ matrix.runtime }}
       - run: dotnet publish -r ${{ matrix.runtime }} -p:PublishAot=true -p:OptimizationPreference=Speed -p:DebugSymbols=false
       - if: matrix.platform == 'macos-latest'
         working-directory: 'Avalonia.FluentUI/bin/Release/net10.0/${{ matrix.runtime }}/publish'
