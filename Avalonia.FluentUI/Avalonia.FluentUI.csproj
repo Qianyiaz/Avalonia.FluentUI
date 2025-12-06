@@ -12,18 +12,15 @@
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
 
-    <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-        <PackageReference Include="HotAvalonia" Version="3.0.1"/>
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.9"/>
-    </ItemGroup>
-
     <ItemGroup>
         <AvaloniaResource Include="app.ico"/>
         <PackageReference Include="FluentAvaloniaUI" Version="2.4.1"/>
         <PackageReference Include="Avalonia.Desktop" Version="11.3.9"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0"/>
+        <PackageReference Include="HotAvalonia" Version="3.0.1" PrivateAssets="All" Publish="True"/>
         <PackageReference Condition="$(RuntimeIdentifier.StartsWith('osx'))" Include="NeoBundle" Version="1.0.3.1"/>
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.3.9"/>
     </ItemGroup>
 
 </Project>
