@@ -19,49 +19,30 @@
     <ScrollViewer
         VerticalScrollBarVisibility="Auto">
         <StackPanel
-            VerticalAlignment="Top"
+            Spacing="5"
             Margin="8"
-            Spacing="5">
+            VerticalAlignment="Top">
             <ui:SettingsExpander
                 Header="App Theme"
                 IconSource="DarkTheme"
                 Description="Change the current app theme.">
-                <ui:SettingsExpanderItem
-                    Content="Theme Variant">
-                    <ui:SettingsExpanderItem.Footer>
-                        <ComboBox
-                            SelectedValue="{Binding ThemeVariantValue}">
-                            <x:String>Default</x:String>
-                            <x:String>Light</x:String>
-                            <x:String>Dark</x:String>
-                        </ComboBox>
-                    </ui:SettingsExpanderItem.Footer>
-                </ui:SettingsExpanderItem>
-
-                <ui:SettingsExpanderItem
-                    Content="Transparency Effect">
-                    <ui:SettingsExpanderItem.Footer>
-                        <ComboBox
-                            SelectedValue="{Binding TransparencyValue}">
-                            <x:String>Mica</x:String>
-                            <x:String>AcrylicBlur</x:String>
-                        </ComboBox>
-                    </ui:SettingsExpanderItem.Footer>
-                </ui:SettingsExpanderItem>
+                <ui:SettingsExpander.Footer>
+                    <ui:FAComboBox
+                        SelectedValue="{Binding ThemeVariantValue}">
+                        <x:String>Default</x:String>
+                        <x:String>Light</x:String>
+                        <x:String>Dark</x:String>
+                    </ui:FAComboBox>
+                </ui:SettingsExpander.Footer>
             </ui:SettingsExpander>
 
             <ui:SettingsExpander
                 Header="Avalonia.FluentUI"
-                Description="A modern cross-platform desktop application built with the Avalonia UI framework and FluentAvalonia design system.">
+                Footer="{Binding Version,StringFormat='{}Version: {0}'}"
+                Description="A cross-platform desktop application built with AvaloniaUI and FluentAvalonia.">
                 <ui:SettingsExpander.IconSource>
                     <ui:ImageIconSource Source="/app.ico" />
                 </ui:SettingsExpander.IconSource>
-
-                <ui:SettingsExpander.Footer>
-                    <SelectableTextBlock
-                        Foreground="{DynamicResource TextControlForegroundDisabled}"
-                        Text="{Binding Version,StringFormat='{}Version: {0}'}" />
-                </ui:SettingsExpander.Footer>
 
                 <ui:SettingsExpanderItem
                     IsClickEnabled="True"

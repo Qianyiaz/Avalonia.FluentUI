@@ -28,8 +28,7 @@
                 Text="This is HomePage."
                 TextWrapping="WrapWithOverflow" />
 
-            <Button
-                Classes="accent"
+            <RepeatButton
                 Content="{Binding CountButtonText}"
                 Command="{Binding CountCommand}" />
         </StackPanel>

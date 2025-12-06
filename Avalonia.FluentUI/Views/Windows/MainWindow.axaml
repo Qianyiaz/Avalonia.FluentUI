@@ -32,7 +32,7 @@
 
             <ui:NavigationViewItem
                 IconSource="ImageAltText"
-                Content="TextBoxs" />
+                Content="TextBox" />
 
             <ui:NavigationViewItem
                 IconSource="List"

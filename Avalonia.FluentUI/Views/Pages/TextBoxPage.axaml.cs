@@ -1,8 +1,8 @@
 namespace Avalonia.FluentUI.Views.Pages;
 
-public partial class TextBoxsPage : UserControl
+public partial class TextBoxPage : UserControl
 {
-    public TextBoxsPage()
+    public TextBoxPage()
     {
         InitializeComponent();
     }

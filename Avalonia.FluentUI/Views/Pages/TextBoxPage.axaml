@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="Avalonia.FluentUI.Views.Pages.TextBoxsPage">
+             x:Class="Avalonia.FluentUI.Views.Pages.TextBoxPage">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="10" Spacing="10">
             <TextBlock
@@ -22,7 +22,6 @@
                 Text="{Binding #Password.Text,StringFormat='{}Password is {0}'}" />
 
             <TextBox
-                Height="100"
                 AcceptsReturn="True"
                 Text="This is a multi-line TextBox. You can type multiple lines of text here." />
         </StackPanel>

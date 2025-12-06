@@ -1,4 +1,4 @@
 # Avalonia.FluentUI
 [![Size](https://img.shields.io/github/languages/code-size/Qianyiaz/Avalonia.FluentUI.svg)](https://github.com/Qianyiaz/Avalonia.FluentUI/archive/refs/heads/main.zip) [![Version](https://img.shields.io/badge/dynamic/xml?label=Version&url=https%3A%2F%2Fgithub.com%2FQianyiaz%2FAvalonia.FluentUI%2Fraw%2Frefs%2Fheads%2Fmain%2FAvalonia.FluentUI%2FAvalonia.FluentUI.csproj&query=%2F%2FProject%2FPropertyGroup%5B1%5D%2FVersion)](https://github.com/Qianyiaz/Avalonia.FluentUI/tree/main/Avalonia.FluentUI) [![License](https://img.shields.io/github/license/avaloniaui/avalonia.svg)](https://github.com/Qianyiaz/Avalonia.FluentUI/blob/main/license.md) [![Publishing](https://github.com/Qianyiaz/Avalonia.FluentUI/actions/workflows/Publish.yml/badge.svg)](https://github.com/Qianyiaz/Avalonia.FluentUI/actions/workflows/Publish.yml)
 
-A modern cross-platform desktop application built with the Avalonia UI framework and FluentAvalonia design system.
+A cross-platform desktop application built with AvaloniaUI and FluentAvalonia.

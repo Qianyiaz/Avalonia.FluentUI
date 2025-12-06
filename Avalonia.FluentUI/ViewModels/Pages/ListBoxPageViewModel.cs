@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Avalonia.FluentUI.ViewModels.Pages;
 
-public partial class WifiPageViewModel : ObservableObject
+public partial class ListBoxPageViewModel : ObservableObject
 {
     [ObservableProperty] private bool _isEnabled = true;
     [ObservableProperty] private bool _isMultiple;
