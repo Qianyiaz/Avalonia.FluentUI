@@ -26,7 +26,7 @@ jobs:
         with:
           path: ~/.nuget/packages
           key: nuget-cache-${{ matrix.runtime }}
-      - run: dotnet publish -r ${{ matrix.runtime }} -p:PublishAot=true -p:OptimizationPreference=Speed -p:DebugSymbols=false
+      - run: dotnet publish -r ${{ matrix.runtime }} -p:PublishAot=true -p:OptimizationPreference=Size
       - if: matrix.platform == 'macos-latest'
         working-directory: 'Avalonia.FluentUI/bin/Release/net10.0/${{ matrix.runtime }}/publish'
         run: |
@@ -37,4 +37,6 @@ jobs:
           name: Release-${{ matrix.runtime }}
           path: |
             ${{ matrix.platform == 'macos-latest' && '**/*.app' || '**/publish' }}
+            !**/*.pdb
+            !**/*.dbg
             !**/*.dSYM
