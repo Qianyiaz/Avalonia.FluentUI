@@ -16,8 +16,7 @@
         <vm:SettingsPageViewModel />
     </Design.DataContext>
 
-    <ScrollViewer
-        VerticalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel
             Spacing="5"
             Margin="8"

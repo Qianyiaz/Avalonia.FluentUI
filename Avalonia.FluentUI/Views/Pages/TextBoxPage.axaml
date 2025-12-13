@@ -22,6 +22,7 @@
                 Text="{Binding #Password.Text,StringFormat='{}Password is {0}'}" />
 
             <TextBox
+                MinHeight="125"
                 AcceptsReturn="True"
                 Text="This is a multi-line TextBox. You can type multiple lines of text here." />
         </StackPanel>

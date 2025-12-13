@@ -26,23 +26,13 @@
         IsSettingsVisible="False"
         SelectionChanged="OnSelectionChanged">
         <ui:NavigationView.MenuItems>
-            <ui:NavigationViewItem
-                IconSource="Home"
-                Content="Home" />
-
-            <ui:NavigationViewItem
-                IconSource="ImageAltText"
-                Content="TextBox" />
-
-            <ui:NavigationViewItem
-                IconSource="List"
-                Content="ListBox" />
+            <ui:NavigationViewItem IconSource="Home" Content="Home" />
+            <ui:NavigationViewItem IconSource="ImageAltText" Content="TextBox" />
+            <ui:NavigationViewItem IconSource="List" Content="ListBox" />
         </ui:NavigationView.MenuItems>
 
         <ui:NavigationView.FooterMenuItems>
-            <ui:NavigationViewItem
-                IconSource="Settings"
-                Content="Settings" />
+            <ui:NavigationViewItem IconSource="Settings" Content="Settings" />
         </ui:NavigationView.FooterMenuItems>
 
         <ui:Frame CacheSize="1" Name="Frame" />
