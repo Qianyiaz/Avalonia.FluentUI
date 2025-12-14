@@ -29,6 +29,8 @@
                 TextWrapping="WrapWithOverflow" />
 
             <RepeatButton
+                Delay="50"
+                Interval="{Binding $self.Delay}"
                 Content="{Binding CountButtonText}"
                 Command="{Binding CountCommand}" />
         </StackPanel>

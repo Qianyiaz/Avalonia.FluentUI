@@ -5,10 +5,7 @@ namespace Avalonia.FluentUI.Views.Windows;
 
 public partial class MainWindow : Window
 {
-    public MainWindow()
-    {
-        InitializeComponent();
-    }
+    public MainWindow() => InitializeComponent();
 
     protected override void OnOpened(EventArgs e)
     {

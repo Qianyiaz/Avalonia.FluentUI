@@ -1,6 +1,7 @@
 <UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wd="using:Avalonia.FluentUI.ViewModels.Windows"
     xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
     x:Class="Avalonia.FluentUI.Views.Pages.SettingsPage"
@@ -36,8 +37,8 @@
             </ui:SettingsExpander>
 
             <ui:SettingsExpander
-                Header="Avalonia.FluentUI"
-                Footer="{Binding Version,StringFormat='{}Version: {0}'}"
+                Header="{x:Static wd:MainWindowViewModel.Title}"
+                Footer="{Binding Source={x:Static vm:SettingsPageViewModel.Version}, StringFormat='Version: {0}'}"
                 Description="A cross-platform desktop application built with AvaloniaUI and FluentAvalonia.">
                 <ui:SettingsExpander.IconSource>
                     <ui:ImageIconSource Source="/app.ico" />

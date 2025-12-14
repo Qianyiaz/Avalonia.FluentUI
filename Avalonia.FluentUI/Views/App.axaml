@@ -2,7 +2,8 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:fn="using:FluentAvalonia.Styling"
-    x:Class="Avalonia.FluentUI.Views.App">
+    x:Class="Avalonia.FluentUI.Views.App"
+    RequestedThemeVariant="Default">
     <Application.Styles>
         <fn:FluentAvaloniaTheme PreferUserAccentColor="True" />
     </Application.Styles>

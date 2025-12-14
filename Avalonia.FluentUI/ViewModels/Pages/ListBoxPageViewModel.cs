@@ -11,7 +11,7 @@ public partial class ListBoxPageViewModel : ObservableObject
 
     [ObservableProperty] private SelectionMode _selectionMode = SelectionMode.Toggle;
 
-    public AvaloniaList<ConnectionItem>? SelectionItems { get; } = [];
+    public AvaloniaList<ConnectionItem> SelectionItems { get; } = [];
 
     public AvaloniaList<ConnectionItem> Items { get; } =
     [
@@ -60,19 +60,15 @@ public partial class ListBoxPageViewModel : ObservableObject
                 PrimaryButtonText = "Add",
                 CloseButtonText = "Cancel"
             }.ShowAsync() != ContentDialogResult.Primary) return;
-        if (string.IsNullOrWhiteSpace(textBox.Text)) return;
 
-        Items.Add(new()
-        {
-            Name = textBox.Text
-        });
+        Items.Add(new() { Name = textBox.Text! });
         IsEnabled = true;
     }
 
     [RelayCommand]
     private async Task Rename()
     {
-        if (SelectionItems!.Count == 0)
+        if (SelectionItems.Count == 0)
             return;
 
         var textBox = new TextBox
@@ -88,16 +84,15 @@ public partial class ListBoxPageViewModel : ObservableObject
                 PrimaryButtonText = "Rename",
                 CloseButtonText = "Cancel"
             }.ShowAsync() != ContentDialogResult.Primary) return;
-        if (string.IsNullOrWhiteSpace(textBox.Text)) return;
 
-        foreach (var item in SelectionItems!)
-            item.Name = textBox.Text;
+        foreach (var item in SelectionItems)
+            item.Name = textBox.Text!;
     }
 
     [RelayCommand]
     private void Remove()
     {
-        Items.RemoveAll(SelectionItems!);
+        Items.RemoveAll(SelectionItems);
         IsEnabled = Items.Count != 0;
     }
 }

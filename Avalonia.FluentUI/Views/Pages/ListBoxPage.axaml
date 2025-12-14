@@ -81,8 +81,7 @@
                         <StackPanel VerticalAlignment="Top" Spacing="5" Orientation="Horizontal">
                             <ui:SymbolIcon
                                 FontSize="28"
-                                Symbol="WifiProtected"
-                                IsHitTestVisible="False" />
+                                Symbol="WifiProtected" />
 
                             <SelectableTextBlock
                                 FontSize="16"
