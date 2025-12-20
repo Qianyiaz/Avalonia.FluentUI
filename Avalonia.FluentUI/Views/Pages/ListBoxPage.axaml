@@ -47,24 +47,24 @@
             <ToggleButton
                 Content="Multiple"
                 IsChecked="{Binding IsMultiple}"
-                Command="{Binding Multiple}" />
+                Command="{Binding MultipleCommand}" />
 
             <Button
                 Content="Add"
-                Command="{Binding Add}" />
+                Command="{Binding AddCommand}" />
 
             <Button
                 Content="Reset"
-                Command="{Binding Reset}" />
+                Command="{Binding ResetCommand}" />
 
             <Button
                 Content="Rename"
-                Command="{Binding Rename}" />
+                Command="{Binding RenameCommand}" />
 
             <Button
                 Content="Remove"
                 IsEnabled="{Binding IsEnabled}"
-                Command="{Binding Remove}" />
+                Command="{Binding RemoveCommand}" />
         </StackPanel>
 
         <ListBox

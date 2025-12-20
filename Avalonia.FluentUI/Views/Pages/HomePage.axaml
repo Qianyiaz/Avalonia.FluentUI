@@ -33,7 +33,7 @@
                 Delay="50"
                 Interval="{Binding $self.Delay}"
                 Content="{Binding CountButtonText}"
-                Command="{Binding Count}" />
+                Command="{Binding CountCommand}" />
         </StackPanel>
     </Border>
 </UserControl>
