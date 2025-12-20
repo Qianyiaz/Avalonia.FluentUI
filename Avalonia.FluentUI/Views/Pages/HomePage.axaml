@@ -1,25 +1,26 @@
 <UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
     x:Class="Avalonia.FluentUI.Views.Pages.HomePage"
-    x:DataType="vm:HomePageViewModel">
+    x:DataType="HomePageViewModel">
 
     <UserControl.DataContext>
-        <vm:HomePageViewModel />
+        <HomePageViewModel />
     </UserControl.DataContext>
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:HomePageViewModel />
+        <HomePageViewModel />
     </Design.DataContext>
 
     <Border
         Padding="25"
         HorizontalAlignment="Center"
         VerticalAlignment="Center"
-        Background="{DynamicResource ButtonBackground}"
+        BorderThickness="1"
+        BorderBrush="{DynamicResource ColorBorder}"
+        Background="{DynamicResource ToggleButtonBackground}"
         CornerRadius="{DynamicResource OverlayCornerRadius}">
         <StackPanel
             Spacing="15">
@@ -32,7 +33,7 @@
                 Delay="50"
                 Interval="{Binding $self.Delay}"
                 Content="{Binding CountButtonText}"
-                Command="{Binding CountCommand}" />
+                Command="{Binding Count}" />
         </StackPanel>
     </Border>
 </UserControl>

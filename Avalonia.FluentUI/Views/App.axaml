@@ -7,4 +7,16 @@
     <Application.Styles>
         <fn:FluentAvaloniaTheme PreferUserAccentColor="True" />
     </Application.Styles>
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key='Light'>
+                    <SolidColorBrush x:Key="ColorBorder" Opacity="0.08" Color="#1C1F23" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key='Dark'>
+                    <SolidColorBrush x:Key="ColorBorder" Opacity="0.08" Color="White" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

@@ -1,23 +1,22 @@
 <Window
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Windows"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
     x:Class="Avalonia.FluentUI.Views.Windows.MainWindow"
-    x:DataType="vm:MainWindowViewModel"
-    Title="{x:Static vm:MainWindowViewModel.Title}"
+    x:DataType="MainWindowViewModel"
+    Title="{x:Static MainWindowViewModel.Title}"
     TransparencyLevelHint="Mica,AcrylicBlur,None"
     Background="Transparent"
     Icon="/app.ico">
 
     <Window.DataContext>
-        <vm:MainWindowViewModel />
+        <MainWindowViewModel />
     </Window.DataContext>
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel />
+        <MainWindowViewModel />
     </Design.DataContext>
 
     <ui:NavigationView

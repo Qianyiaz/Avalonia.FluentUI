@@ -2,19 +2,18 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:wd="using:Avalonia.FluentUI.ViewModels.Windows"
-    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
     x:Class="Avalonia.FluentUI.Views.Pages.SettingsPage"
-    x:DataType="vm:SettingsPageViewModel">
+    x:DataType="SettingsPageViewModel">
 
     <UserControl.DataContext>
-        <vm:SettingsPageViewModel />
+        <SettingsPageViewModel />
     </UserControl.DataContext>
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:SettingsPageViewModel />
+        <SettingsPageViewModel />
     </Design.DataContext>
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
@@ -38,7 +37,7 @@
 
             <ui:SettingsExpander
                 Header="{x:Static wd:MainWindowViewModel.Title}"
-                Footer="{Binding Source={x:Static vm:SettingsPageViewModel.Version}, StringFormat='Version: {0}'}"
+                Footer="{Binding Source={x:Static SettingsPageViewModel.Version}, StringFormat='Version: {0}'}"
                 Description="A cross-platform desktop application built with AvaloniaUI and FluentAvalonia.">
                 <ui:SettingsExpander.IconSource>
                     <ui:ImageIconSource Source="/app.ico" />

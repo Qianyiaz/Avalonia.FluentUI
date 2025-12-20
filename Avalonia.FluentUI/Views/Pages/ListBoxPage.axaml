@@ -1,20 +1,18 @@
 <UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
-    xmlns:models="using:Avalonia.FluentUI.Models"
     x:Class="Avalonia.FluentUI.Views.Pages.ListBoxPage"
-    x:DataType="vm:ListBoxPageViewModel">
+    x:DataType="ListBoxPageViewModel">
 
     <UserControl.DataContext>
-        <vm:ListBoxPageViewModel />
+        <ListBoxPageViewModel />
     </UserControl.DataContext>
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:ListBoxPageViewModel />
+        <ListBoxPageViewModel />
     </Design.DataContext>
 
     <UserControl.Styles>
@@ -49,24 +47,24 @@
             <ToggleButton
                 Content="Multiple"
                 IsChecked="{Binding IsMultiple}"
-                Command="{Binding MultipleCommand}" />
+                Command="{Binding Multiple}" />
 
             <Button
                 Content="Add"
-                Command="{Binding AddCommand}" />
+                Command="{Binding Add}" />
 
             <Button
                 Content="Reset"
-                Command="{Binding ResetCommand}" />
+                Command="{Binding Reset}" />
 
             <Button
                 Content="Rename"
-                Command="{Binding RenameCommand}" />
+                Command="{Binding Rename}" />
 
             <Button
                 Content="Remove"
                 IsEnabled="{Binding IsEnabled}"
-                Command="{Binding RemoveCommand}" />
+                Command="{Binding Remove}" />
         </StackPanel>
 
         <ListBox
@@ -76,7 +74,7 @@
             SelectedItems="{Binding SelectionItems}"
             SelectionMode="{Binding SelectionMode}">
             <ListBox.ItemTemplate>
-                <DataTemplate DataType="models:ConnectionItem">
+                <DataTemplate DataType="ConnectionItem">
                     <Panel Margin="8">
                         <StackPanel VerticalAlignment="Top" Spacing="5" Orientation="Horizontal">
                             <ui:SymbolIcon
