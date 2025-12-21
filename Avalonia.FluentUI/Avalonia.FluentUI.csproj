@@ -5,10 +5,15 @@
         <Nullable>enable</Nullable>
         <OutputType>WinExe</OutputType>
         <LangVersion>preview</LangVersion>
-        <ImplicitUsings>true</ImplicitUsings>
         <TargetFramework>net10.0</TargetFramework>
         <ApplicationIcon>app.ico</ApplicationIcon>
         <Copyright>Copyright Qianyiaz 2025</Copyright>
+        <OptimizationPreference>Size</OptimizationPreference>
+
+        <PublishAot>true</PublishAot>
+        <ImplicitUsings>true</ImplicitUsings>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
 
