@@ -2,7 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="Avalonia.FluentUI.Views.Pages.TextBoxPage">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel Margin="10" Spacing="10">
+        <StackPanel Margin="10" Spacing="16">
             <TextBlock
                 Text="TextBoxs"
                 FontSize="45" />
@@ -25,6 +25,15 @@
                 MinHeight="125"
                 AcceptsReturn="True"
                 Text="This is a multi-line TextBox. You can type multiple lines of text here." />
+            
+            <MaskedTextBox 
+                ToolTip.Tip="I'm a masked textbox."
+                Mask="(+09) 000 000 0000"/>
+            
+            <AutoCompleteBox 
+                FilterMode="StartsWith"
+                ItemsSource="{x:Static TextBoxPageViewModel.AnimalList}"
+                Watermark="Choose your favourite animal." />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

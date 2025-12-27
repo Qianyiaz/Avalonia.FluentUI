@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Reflection;
 using Avalonia.Styling;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Avalonia.FluentUI.ViewModels.Pages;
 
@@ -19,8 +20,9 @@ public partial class SettingsPageViewModel : ObservableObject
             "Dark" => ThemeVariant.Dark,
             _ => ThemeVariant.Default
         };
-
-    public void OpenUrl() =>
+    
+    [RelayCommand]
+    private void OpenUrl() =>
         Process.Start(new ProcessStartInfo
         {
             FileName = "https://github.com/Qianyiaz/Avalonia.FluentUI",
