@@ -19,7 +19,7 @@
 
     <ItemGroup Condition="'$(Configuration)' == 'Debug'">
         <PackageReference Include="HotAvalonia" Version="3.0.2"/>
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.10"/>
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.11"/>
     </ItemGroup>
 
     <ItemGroup>
