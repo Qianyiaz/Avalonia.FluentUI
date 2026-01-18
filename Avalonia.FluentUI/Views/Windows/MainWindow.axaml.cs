@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Avalonia.FluentUI.Views.Pages;
+using FluentAvalonia.UI.Controls;
 
 namespace Avalonia.FluentUI.Views.Windows;
 

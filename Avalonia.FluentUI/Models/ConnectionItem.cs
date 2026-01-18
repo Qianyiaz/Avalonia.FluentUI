@@ -1,3 +1,5 @@
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace Avalonia.FluentUI.Models;
 
 public partial class ConnectionItem : ObservableObject

@@ -1,20 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <Version>1.0.1.5</Version>
         <Nullable>enable</Nullable>
         <OutputType>WinExe</OutputType>
         <LangVersion>preview</LangVersion>
-        <TargetFramework>net10.0</TargetFramework>
-        <ApplicationIcon>app.ico</ApplicationIcon>
-        <Copyright>Copyright Qianyiaz 2025</Copyright>
-        <OptimizationPreference>Size</OptimizationPreference>
-
-        <PublishAot>true</PublishAot>
         <ImplicitUsings>true</ImplicitUsings>
+        <TargetFramework>net10.0</TargetFramework>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <ApplicationIcon>app.ico</ApplicationIcon>
+        <Version>$([System.DateTime]::Now.ToString("yyyy.M"))</Version>
+        <Copyright>Copyright © Qianyiaz $([System.DateTime]::Now.ToString("yyyy"))</Copyright>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <PublishAot>true</PublishAot>
+        <OptimizationPreference>Size</OptimizationPreference>
         <InvariantGlobalization>true</InvariantGlobalization>
         <IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
-        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
 
     <ItemGroup Condition="'$(Configuration)' == 'Debug'">

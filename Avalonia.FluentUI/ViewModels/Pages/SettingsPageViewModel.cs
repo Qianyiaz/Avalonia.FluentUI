@@ -1,6 +1,6 @@
 using System.Diagnostics;
-using System.Reflection;
 using Avalonia.Styling;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace Avalonia.FluentUI.ViewModels.Pages;
@@ -9,10 +9,7 @@ public partial class SettingsPageViewModel : ObservableObject
 {
     [ObservableProperty] private string _themeVariantValue =
         Application.Current!.RequestedThemeVariant!.Key.ToString()!;
-
-    public static string Version =>
-        Assembly.GetEntryAssembly()!.GetName().Version!.ToString();
-
+    
     partial void OnThemeVariantValueChanged(string value) =>
         Application.Current!.RequestedThemeVariant = value switch
         {

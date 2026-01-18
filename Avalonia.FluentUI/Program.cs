@@ -1,6 +1,4 @@
-﻿using Avalonia.FluentUI.Views;
-
-namespace Avalonia.FluentUI;
+﻿namespace Avalonia.FluentUI;
 
 public static class Program
 {

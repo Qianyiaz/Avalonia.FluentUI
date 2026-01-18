@@ -2,7 +2,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.FluentUI.Views.Windows;
 using Avalonia.Markup.Xaml;
 
-namespace Avalonia.FluentUI.Views;
+namespace Avalonia.FluentUI;
 
 public class App : Application
 {

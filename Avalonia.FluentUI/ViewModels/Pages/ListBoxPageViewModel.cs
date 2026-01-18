@@ -1,6 +1,8 @@
 using Avalonia.Collections;
 using Avalonia.FluentUI.Models;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using FluentAvalonia.UI.Controls;
 
 namespace Avalonia.FluentUI.ViewModels.Pages;
 
