@@ -35,8 +35,7 @@
             </ui:SettingsExpander>
 
             <ui:SettingsExpander
-                Header="{x:Static MainWindowViewModel.Title}"
-                Footer="{Binding Source={x:Static MainWindowViewModel.Version}, StringFormat='Version: {0}'}"
+                Header="Avalonia.FluentUI"
                 Description="A cross-platform desktop application built with AvaloniaUI and FluentAvalonia.">
                 <ui:SettingsExpander.IconSource>
                     <ui:ImageIconSource Source="/app.ico" />

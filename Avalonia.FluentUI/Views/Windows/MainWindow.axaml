@@ -3,9 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
     x:Class="Avalonia.FluentUI.Views.Windows.MainWindow"
-    Title="{x:Static MainWindowViewModel.Title}"
     TransparencyLevelHint="Mica,AcrylicBlur,None"
     Background="Transparent"
+    Title="Avalonia.FluentUI"
     Icon="/app.ico">
 
     <ui:NavigationView

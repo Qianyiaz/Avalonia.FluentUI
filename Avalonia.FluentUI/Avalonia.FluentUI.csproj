@@ -11,7 +11,6 @@
     
     <PropertyGroup>
         <ApplicationIcon>app.ico</ApplicationIcon>
-        <Version>$([System.DateTime]::Now.ToString("yyyy.M"))</Version>
         <Copyright>Copyright © Qianyiaz $([System.DateTime]::Now.ToString("yyyy"))</Copyright>
     </PropertyGroup>
     
@@ -29,10 +28,10 @@
 
     <ItemGroup>
         <AvaloniaResource Include="app.ico"/>
-        <PackageReference Include="FluentAvaloniaUI" Version="2.4.1"/>
+        <PackageReference Include="ChmlFrp.SDK" Version="2.2.1" />
+        <PackageReference Include="FluentAvaloniaUI" Version="2.5.0" />
         <PackageReference Include="Avalonia.Desktop" Version="11.3.11"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
-        <PackageReference Condition="$(RuntimeIdentifier.StartsWith('osx'))" Include="NeoBundle" Version="1.0.3.1"/>
     </ItemGroup>
-
+    
 </Project>

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using Avalonia.FluentUI.Views.Pages;
 using FluentAvalonia.UI.Controls;
@@ -8,10 +9,37 @@ public partial class MainWindow : Window
 {
     public MainWindow() => InitializeComponent();
 
-    protected override void OnOpened(EventArgs e)
+    protected async override void OnOpened(EventArgs e)
     {
         base.OnOpened(e);
-        RootNavigation.SelectedItem = RootNavigation.MenuItems[0];
+
+        var loginPage = new LoginPage();
+        var result = await new ContentDialog
+        {
+            Title = "登录你的账号",
+            Content = loginPage,
+            PrimaryButtonText = "登录",
+            SecondaryButtonText = "注册",
+            CloseButtonText = "退出"
+        }.ShowAsync();
+
+        switch (result)
+        {
+            case ContentDialogResult.Primary when (bool)loginPage.TokenCheckBox.IsChecked!:
+                await App.ChmlFrpClient.LoginByTokenAsync("", (bool)loginPage.SaveCheckBox.IsChecked!);
+                break;
+            case ContentDialogResult.Primary:
+                await App.ChmlFrpClient.LoginAsync("", "", (bool)loginPage.SaveCheckBox.IsChecked!);
+                break;
+            case ContentDialogResult.Secondary:
+                Process.Start(new ProcessStartInfo("https://panel.chmlfrp.net/sign") { UseShellExecute = true });
+                break;
+            default:
+                Close();
+                break;
+        }
+
+        // RootNavigation.SelectedItem = RootNavigation.MenuItems[0];
     }
 
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(HomePage))]
