@@ -1,13 +1,12 @@
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.FluentUI.Views.Windows;
 using Avalonia.Markup.Xaml;
-using ChmlFrp.SDK.Service;
 
 namespace Avalonia.FluentUI;
 
 public class App : Application
 {
-    public static readonly ChmlFrpClient ChmlFrpClient = new();
+    // public static readonly ChmlFrpClient ChmlFrpClient = new();
     
     public override void Initialize() => AvaloniaXamlLoader.Load(this);
 

@@ -36,14 +36,8 @@
         </Style>
     </UserControl.Styles>
 
-    <Grid
-        Margin="0 8 0 0"
-        RowDefinitions="Auto,*">
-        <StackPanel
-            Spacing="5"
-            Margin="5"
-            HorizontalAlignment="Right"
-            Orientation="Horizontal">
+    <Grid RowDefinitions="Auto,*">
+        <WrapPanel HorizontalAlignment="Right" Margin="5 5 15 5" LineSpacing="5" ItemSpacing="5">
             <ToggleButton
                 Content="Multiple"
                 IsChecked="{Binding IsMultiple}"
@@ -65,7 +59,17 @@
                 Content="Remove"
                 IsEnabled="{Binding IsEnabled}"
                 Command="{Binding RemoveCommand}" />
-        </StackPanel>
+            
+            <!--
+            <ToggleButton Name="ListButton" IsChecked="{Binding !#WarpButton.IsChecked}">
+                <ui:SymbolIcon Symbol="List"/>
+            </ToggleButton>
+
+            <ToggleButton Name="WarpButton" IsChecked="{Binding !#ListButton.IsChecked}">
+                <ui:SymbolIcon Symbol="Orientation"/>
+            </ToggleButton>
+            -->
+        </WrapPanel>
 
         <ListBox
             Grid.Row="1"
@@ -75,7 +79,7 @@
             SelectionMode="{Binding SelectionMode}">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="ConnectionItem">
-                    <Panel Margin="8">
+                    <Panel MinWidth="250" Margin="8">
                         <StackPanel VerticalAlignment="Top" Spacing="5" Orientation="Horizontal">
                             <ui:SymbolIcon
                                 FontSize="28"

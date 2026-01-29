@@ -1,6 +1,6 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="Avalonia.FluentUI.Views.Pages.LoginPage">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             <!--x:Class="Avalonia.FluentUI.Views.Pages.LoginPage"-->
     <StackPanel MinWidth="325" Spacing="5">
         <TextBox IsVisible="{Binding !#TokenCheckBox.IsChecked}" Watermark="用户名"/>
         <TextBox IsVisible="{Binding !#TokenCheckBox.IsChecked}" Watermark="密码" PasswordChar="*"/>

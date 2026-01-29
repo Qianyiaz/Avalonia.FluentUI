@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using Avalonia.FluentUI.Views.Pages;
 using FluentAvalonia.UI.Controls;
@@ -9,11 +8,11 @@ public partial class MainWindow : Window
 {
     public MainWindow() => InitializeComponent();
 
-    protected async override void OnOpened(EventArgs e)
+    protected override void OnOpened(EventArgs e)
     {
         base.OnOpened(e);
 
-        var loginPage = new LoginPage();
+        /*var loginPage = new LoginPage();
         var result = await new ContentDialog
         {
             Title = "登录你的账号",
@@ -37,9 +36,9 @@ public partial class MainWindow : Window
             default:
                 Close();
                 break;
-        }
+        }*/
 
-        // RootNavigation.SelectedItem = RootNavigation.MenuItems[0];
+        RootNavigation.SelectedItem = RootNavigation.MenuItems[0];
     }
 
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(HomePage))]
