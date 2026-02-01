@@ -11,33 +11,6 @@ public partial class MainWindow : Window
     protected override void OnOpened(EventArgs e)
     {
         base.OnOpened(e);
-
-        /*var loginPage = new LoginPage();
-        var result = await new ContentDialog
-        {
-            Title = "登录你的账号",
-            Content = loginPage,
-            PrimaryButtonText = "登录",
-            SecondaryButtonText = "注册",
-            CloseButtonText = "退出"
-        }.ShowAsync();
-
-        switch (result)
-        {
-            case ContentDialogResult.Primary when (bool)loginPage.TokenCheckBox.IsChecked!:
-                await App.ChmlFrpClient.LoginByTokenAsync("", (bool)loginPage.SaveCheckBox.IsChecked!);
-                break;
-            case ContentDialogResult.Primary:
-                await App.ChmlFrpClient.LoginAsync("", "", (bool)loginPage.SaveCheckBox.IsChecked!);
-                break;
-            case ContentDialogResult.Secondary:
-                Process.Start(new ProcessStartInfo("https://panel.chmlfrp.net/sign") { UseShellExecute = true });
-                break;
-            default:
-                Close();
-                break;
-        }*/
-
         RootNavigation.SelectedItem = RootNavigation.MenuItems[0];
     }
 
