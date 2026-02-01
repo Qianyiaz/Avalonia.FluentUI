@@ -17,6 +17,7 @@
             <ui:NavigationViewItem IconSource="Home" Content="Home" />
             <ui:NavigationViewItem IconSource="ImageAltText" Content="TextBox" />
             <ui:NavigationViewItem IconSource="List" Content="ListBox" />
+            <ui:NavigationViewItem IconSource="AlignDistributed" Content="TabView" />
         </ui:NavigationView.MenuItems>
 
         <ui:NavigationView.FooterMenuItems>

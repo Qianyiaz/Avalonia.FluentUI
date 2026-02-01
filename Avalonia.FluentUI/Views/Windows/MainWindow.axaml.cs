@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using Avalonia.FluentUI.Views.Pages;
 using FluentAvalonia.UI.Controls;
 
@@ -15,6 +16,7 @@ public partial class MainWindow : Window
     }
 
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(HomePage))]
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(TabViewPage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(ListBoxPage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(TextBoxPage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(SettingsPage))]
@@ -27,6 +29,7 @@ public partial class MainWindow : Window
             item.Content switch
             {
                 "Home" => typeof(HomePage),
+                "TabView" => typeof(TabViewPage),
                 "ListBox" => typeof(ListBoxPage),
                 "TextBox" => typeof(TextBoxPage),
                 "Settings" => typeof(SettingsPage),

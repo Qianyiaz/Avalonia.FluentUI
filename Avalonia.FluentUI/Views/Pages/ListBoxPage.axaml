@@ -59,16 +59,6 @@
                 Content="Remove"
                 IsEnabled="{Binding IsEnabled}"
                 Command="{Binding RemoveCommand}" />
-            
-            <!--
-            <ToggleButton Name="ListButton" IsChecked="{Binding !#WarpButton.IsChecked}">
-                <ui:SymbolIcon Symbol="List"/>
-            </ToggleButton>
-
-            <ToggleButton Name="WarpButton" IsChecked="{Binding !#ListButton.IsChecked}">
-                <ui:SymbolIcon Symbol="Orientation"/>
-            </ToggleButton>
-            -->
         </WrapPanel>
 
         <ListBox
