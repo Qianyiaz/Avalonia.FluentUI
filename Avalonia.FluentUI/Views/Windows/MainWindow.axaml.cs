@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
 using Avalonia.FluentUI.Views.Pages;
 using FluentAvalonia.UI.Controls;
 

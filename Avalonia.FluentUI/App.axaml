@@ -1,22 +1,10 @@
 <Application
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:fn="using:FluentAvalonia.Styling"
+    xmlns:sty="using:FluentAvalonia.Styling"
     x:Class="Avalonia.FluentUI.App"
     RequestedThemeVariant="Default">
     <Application.Styles>
-        <fn:FluentAvaloniaTheme PreferUserAccentColor="True" />
+        <sty:FluentAvaloniaTheme PreferUserAccentColor="True" />
     </Application.Styles>
-    <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.ThemeDictionaries>
-                <ResourceDictionary x:Key='Light'>
-                    <SolidColorBrush x:Key="ColorBorder" Opacity="0.08" Color="#1C1F23" />
-                </ResourceDictionary>
-                <ResourceDictionary x:Key='Dark'>
-                    <SolidColorBrush x:Key="ColorBorder" Opacity="0.08" Color="White" />
-                </ResourceDictionary>
-            </ResourceDictionary.ThemeDictionaries>
-        </ResourceDictionary>
-    </Application.Resources>
 </Application>
