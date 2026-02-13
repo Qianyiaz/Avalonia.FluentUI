@@ -29,7 +29,7 @@
     <ItemGroup>
         <AvaloniaResource Include="app.ico"/>
         <PackageReference Include="FluentAvaloniaUI" Version="2.5.0" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.11"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.12"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
     </ItemGroup>
     
