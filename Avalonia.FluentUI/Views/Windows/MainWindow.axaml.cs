@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Avalonia.FluentUI.Views.Pages;
 using FluentAvalonia.UI.Controls;
 
@@ -13,6 +14,11 @@ public partial class MainWindow : Window
         RootNavigation.SelectedItem = RootNavigation.MenuItems[0];
     }
 
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(HomePage))]
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(TabViewPage))]
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(ListBoxPage))]
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(TextBoxPage))]
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(SettingsPage))]
     private void OnSelectionChanged(object sender, NavigationViewSelectionChangedEventArgs e)
     {
         if (e.SelectedItem is not NavigationViewItem item) return;
