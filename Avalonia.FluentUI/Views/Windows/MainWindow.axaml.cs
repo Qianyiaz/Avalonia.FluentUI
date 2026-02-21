@@ -1,10 +1,8 @@
-using System.Diagnostics.CodeAnalysis;
 using Avalonia.FluentUI.Views.Pages;
 using FluentAvalonia.UI.Controls;
 
 namespace Avalonia.FluentUI.Views.Windows;
 
-[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)]
 public partial class MainWindow : Window
 {
     public MainWindow() => InitializeComponent();
