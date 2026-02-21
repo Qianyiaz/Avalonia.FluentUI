@@ -8,12 +8,12 @@
         <TargetFramework>net10.0</TargetFramework>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
-    
+
     <PropertyGroup>
         <ApplicationIcon>app.ico</ApplicationIcon>
         <Copyright>Copyright © Qianyiaz $([System.DateTime]::Now.ToString("yyyy"))</Copyright>
     </PropertyGroup>
-    
+
     <PropertyGroup Condition="'$(Configuration)' == 'Release'">
         <PublishAot>true</PublishAot>
         <OptimizationPreference>Size</OptimizationPreference>
@@ -28,9 +28,9 @@
 
     <ItemGroup>
         <AvaloniaResource Include="app.ico"/>
-        <PackageReference Include="FluentAvaloniaUI" Version="2.5.0" />
+        <PackageReference Include="FluentAvaloniaUI" Version="2.5.0"/>
         <PackageReference Include="Avalonia.Desktop" Version="11.3.12"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
     </ItemGroup>
-    
+
 </Project>

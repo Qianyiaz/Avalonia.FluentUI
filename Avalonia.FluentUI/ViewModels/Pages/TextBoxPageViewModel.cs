@@ -3,5 +3,5 @@
 public static class TextBoxPageViewModel
 {
     public static string[] AnimalList =>
-        ["cat", "camel", "cow", "chameleon", "mouse", "lion", "zebra" ];
+        ["cat", "camel", "cow", "chameleon", "mouse", "lion", "zebra"];
 }

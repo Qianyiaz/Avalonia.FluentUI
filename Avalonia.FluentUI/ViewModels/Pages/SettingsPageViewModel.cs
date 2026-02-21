@@ -9,7 +9,7 @@ public partial class SettingsPageViewModel : ObservableObject
 {
     [ObservableProperty] private string _themeVariantValue =
         Application.Current!.RequestedThemeVariant!.Key.ToString()!;
-    
+
     partial void OnThemeVariantValueChanged(string value) =>
         Application.Current!.RequestedThemeVariant = value switch
         {
@@ -17,7 +17,7 @@ public partial class SettingsPageViewModel : ObservableObject
             "Dark" => ThemeVariant.Dark,
             _ => ThemeVariant.Default
         };
-    
+
     [RelayCommand]
     private void OpenUrl() =>
         Process.Start(new ProcessStartInfo
