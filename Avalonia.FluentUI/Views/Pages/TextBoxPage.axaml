@@ -25,12 +25,12 @@
                 MinHeight="125"
                 AcceptsReturn="True"
                 Text="This is a multi-line TextBox. You can type multiple lines of text here." />
-            
-            <MaskedTextBox 
+
+            <MaskedTextBox
                 ToolTip.Tip="I'm a masked textbox."
-                Mask="(+09) 000 000 0000"/>
-            
-            <AutoCompleteBox 
+                Mask="(+09) 000 000 0000" />
+
+            <AutoCompleteBox
                 FilterMode="StartsWith"
                 ItemsSource="{x:Static TextBoxPageViewModel.AnimalList}"
                 Watermark="Choose your favourite animal." />
