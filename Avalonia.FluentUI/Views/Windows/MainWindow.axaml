@@ -25,6 +25,6 @@
             <ui:NavigationViewItem IconSource="Settings" Content="Settings" />
         </ui:NavigationView.FooterMenuItems>
 
-        <ui:Frame CacheSize="1" Name="Frame" />
+        <ui:Frame Name="Frame" />
     </ui:NavigationView>
 </Window>

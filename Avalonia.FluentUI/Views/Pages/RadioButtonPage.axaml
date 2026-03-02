@@ -8,7 +8,7 @@
         VerticalAlignment="Center"
         Background="{DynamicResource ButtonBackground}"
         CornerRadius="{DynamicResource OverlayCornerRadius}">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="8" Orientation="Horizontal">
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" ColumnDefinitions="*,*" ColumnSpacing="8">
             <StackPanel>
                 <TextBlock Margin="0 10 0 5">First Group</TextBlock>
                 <RadioButton GroupName="First Group"
@@ -19,13 +19,13 @@
                              GroupName="First Group"
                              Content="Third Option" />
             </StackPanel>
-            <StackPanel>
+            <StackPanel Grid.Column="1">
                 <TextBlock Margin="0 10 0 5">Second Group</TextBlock>
                 <RadioButton GroupName="Second Group"
                              Content="Fourth Option" />
                 <RadioButton GroupName="Second Group"
                              Content="Fifth Option" />
             </StackPanel>
-        </StackPanel>
+        </Grid>
     </Border>
 </UserControl>

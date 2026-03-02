@@ -15,7 +15,7 @@
             <TextBox IsVisible="{Binding #CheckBox.IsChecked}" Watermark="用户令牌" PasswordChar="*" />
             <WrapPanel ItemSpacing="5">
                 <CheckBox Name="CheckBox" Content="使用令牌(token)登录" />
-                <CheckBox Content="保持登录" />
+                <CheckBox IsChecked="True" Content="保持登录" />
             </WrapPanel>
             <Button Classes="accent" HotKey="Enter" Content="登录" HorizontalAlignment="Right" />
         </StackPanel>
