@@ -1,21 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <Nullable>enable</Nullable>
         <OutputType>WinExe</OutputType>
         <LangVersion>preview</LangVersion>
         <ImplicitUsings>true</ImplicitUsings>
+        <ApplicationIcon>app.ico</ApplicationIcon>
         <TargetFramework>net10.0</TargetFramework>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <ApplicationIcon>app.ico</ApplicationIcon>
         <Copyright>Copyright © Qianyiaz $([System.DateTime]::Now.ToString("yyyy"))</Copyright>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Release'">
         <PublishAot>true</PublishAot>
+        <UseSystemResourceKeys>true</UseSystemResourceKeys>
         <OptimizationPreference>Size</OptimizationPreference>
         <InvariantGlobalization>true</InvariantGlobalization>
         <IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
@@ -32,5 +29,4 @@
         <PackageReference Include="Avalonia.Desktop" Version="11.3.12"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2"/>
     </ItemGroup>
-
 </Project>
