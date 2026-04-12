@@ -1,4 +1,6 @@
-﻿namespace Avalonia.FluentUI.Views.Pages;
+﻿using Avalonia.Controls;
+
+namespace Avalonia.FluentUI.Views.Pages;
 
 public partial class RadioButtonPage : UserControl
 {
