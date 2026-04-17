@@ -1,8 +1,7 @@
-<wnd:FAAppWindow
+<Window
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
-    xmlns:wnd="using:FluentAvalonia.UI.Windowing"
     x:Class="Avalonia.FluentUI.Views.Windows.MainWindow"
     TransparencyLevelHint="Mica,AcrylicBlur,None"
     Background="Transparent"
@@ -28,4 +27,4 @@
 
         <ui:FAFrame Name="Frame" />
     </ui:FANavigationView>
-</wnd:FAAppWindow>
+</Window>

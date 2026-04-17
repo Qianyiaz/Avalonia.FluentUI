@@ -1,11 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
+using Avalonia.Controls;
 using Avalonia.FluentUI.Views.Pages;
 using FluentAvalonia.UI.Controls;
-using FluentAvalonia.UI.Windowing;
 
 namespace Avalonia.FluentUI.Views.Windows;
 
-public partial class MainWindow : FAAppWindow
+public partial class MainWindow : Window
 { 
     public MainWindow() => InitializeComponent();
 
