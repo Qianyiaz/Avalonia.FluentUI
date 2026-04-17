@@ -1,30 +1,31 @@
-<Window
+<wnd:FAAppWindow
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:wnd="using:FluentAvalonia.UI.Windowing"
     x:Class="Avalonia.FluentUI.Views.Windows.MainWindow"
     TransparencyLevelHint="Mica,AcrylicBlur,None"
     Background="Transparent"
     Title="Avalonia.FluentUI"
     Icon="/app.ico">
 
-    <ui:NavigationView
+    <ui:FANavigationView
         Name="RootNavigation"
         PaneDisplayMode="Auto"
         IsSettingsVisible="False"
         SelectionChanged="OnSelectionChanged">
-        <ui:NavigationView.MenuItems>
-            <ui:NavigationViewItem IconSource="Home" Content="Home" />
-            <ui:NavigationViewItem IconSource="ImageAltText" Content="TextBox" />
-            <ui:NavigationViewItem IconSource="List" Content="ListBox" />
-            <ui:NavigationViewItem IconSource="RadioButtonFilled" Content="RadioButton" />
-            <ui:NavigationViewItem IconSource="Earth" Content="Login"/>
-        </ui:NavigationView.MenuItems>
+        <ui:FANavigationView.MenuItems>
+            <ui:FANavigationViewItem IconSource="Home" Content="Home" />
+            <ui:FANavigationViewItem IconSource="ImageAltText" Content="TextBox" />
+            <ui:FANavigationViewItem IconSource="List" Content="ListBox" />
+            <ui:FANavigationViewItem IconSource="RadioButtonFilled" Content="RadioButton" />
+            <ui:FANavigationViewItem IconSource="Earth" Content="Login"/>
+        </ui:FANavigationView.MenuItems>
 
-        <ui:NavigationView.FooterMenuItems>
-            <ui:NavigationViewItem IconSource="Settings" Content="Settings" />
-        </ui:NavigationView.FooterMenuItems>
+        <ui:FANavigationView.FooterMenuItems>
+            <ui:FANavigationViewItem IconSource="Settings" Content="Settings" />
+        </ui:FANavigationView.FooterMenuItems>
 
-        <ui:Frame Name="Frame" />
-    </ui:NavigationView>
-</Window>
+        <ui:FAFrame Name="Frame" />
+    </ui:FANavigationView>
+</wnd:FAAppWindow>

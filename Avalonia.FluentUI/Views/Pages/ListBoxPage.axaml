@@ -77,7 +77,7 @@
                 <DataTemplate DataType="ConnectionItem">
                     <Panel MinWidth="250" Margin="8">
                         <WrapPanel ItemSpacing="5">
-                            <ui:SymbolIcon
+                            <ui:FASymbolIcon
                                 FontSize="28"
                                 Symbol="WifiProtected" />
 
