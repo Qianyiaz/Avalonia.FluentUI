@@ -10,9 +10,9 @@
         CornerRadius="{DynamicResource OverlayCornerRadius}">
         <StackPanel VerticalAlignment="Center" MinWidth="400" Spacing="8">
             <TextBlock FontWeight="Bold" FontSize="25">登录界面</TextBlock>
-            <TextBox IsVisible="{Binding !#CheckBox.IsChecked}" Watermark="用户名" />
-            <TextBox IsVisible="{Binding !#CheckBox.IsChecked}" Watermark="密码" PasswordChar="*" />
-            <TextBox IsVisible="{Binding #CheckBox.IsChecked}" Watermark="用户令牌" PasswordChar="*" />
+            <TextBox IsVisible="{Binding !#CheckBox.IsChecked}" PlaceholderText="用户名" />
+            <TextBox IsVisible="{Binding !#CheckBox.IsChecked}" PlaceholderText="密码" PasswordChar="*" />
+            <TextBox IsVisible="{Binding #CheckBox.IsChecked}" PlaceholderText="用户令牌" PasswordChar="*" />
             <WrapPanel ItemSpacing="5">
                 <CheckBox Name="CheckBox" Content="使用令牌(token)登录" />
                 <CheckBox IsChecked="True" Content="保持登录" />

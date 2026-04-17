@@ -9,13 +9,13 @@
 
             <TextBox
                 ToolTip.Tip="A tooltip."
-                Watermark="I am a TextBox with a watermark and a tooltip." />
+                PlaceholderText="I am a TextBox with a watermark and a tooltip." />
 
             <TextBox
                 Name="Password"
                 PasswordChar="*"
                 ToolTip.Tip="A tooltip."
-                Watermark="I am a PasswordBox with a watermark and a tooltip." />
+                PlaceholderText="I am a PasswordBox with a watermark and a tooltip." />
 
             <SelectableTextBlock
                 TextWrapping="Wrap"
@@ -33,7 +33,7 @@
             <AutoCompleteBox
                 FilterMode="StartsWith"
                 ItemsSource="{x:Static TextBoxPageViewModel.AnimalList}"
-                Watermark="Choose your favourite animal." />
+                PlaceholderText="Choose your favourite animal." />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

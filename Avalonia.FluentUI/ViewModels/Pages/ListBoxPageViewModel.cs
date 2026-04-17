@@ -52,17 +52,17 @@ public partial class ListBoxPageViewModel : ObservableObject
     {
         var textBox = new TextBox
         {
-            Watermark = "Enter SSID",
+            PlaceholderText = "Enter SSID",
             Width = 300
         };
 
-        if (await new ContentDialog
+        if (await new FAContentDialog
             {
                 Title = "Add New Connection",
                 Content = textBox,
                 PrimaryButtonText = "Add",
                 CloseButtonText = "Cancel"
-            }.ShowAsync() != ContentDialogResult.Primary) return;
+            }.ShowAsync() != FAContentDialogResult.Primary) return;
 
         Items.Add(new() { Name = textBox.Text! });
         IsEnabled = true;
@@ -76,17 +76,17 @@ public partial class ListBoxPageViewModel : ObservableObject
 
         var textBox = new TextBox
         {
-            Watermark = "Enter new SSID for selected connections",
+            PlaceholderText = "Enter new SSID for selected connections",
             Width = 300
         };
 
-        if (await new ContentDialog
+        if (await new FAContentDialog
             {
                 Title = "Rename connection(s)",
                 Content = textBox,
                 PrimaryButtonText = "Rename",
                 CloseButtonText = "Cancel"
-            }.ShowAsync() != ContentDialogResult.Primary) return;
+            }.ShowAsync() != FAContentDialogResult.Primary) return;
 
         foreach (var item in SelectionItems)
             item.Name = textBox.Text!;

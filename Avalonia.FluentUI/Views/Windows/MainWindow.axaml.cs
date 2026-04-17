@@ -1,16 +1,13 @@
 using System.Diagnostics.CodeAnalysis;
-using Avalonia.Controls;
 using Avalonia.FluentUI.Views.Pages;
 using FluentAvalonia.UI.Controls;
+using FluentAvalonia.UI.Windowing;
 
 namespace Avalonia.FluentUI.Views.Windows;
 
-public partial class MainWindow : Window
+public partial class MainWindow : FAAppWindow
 { 
-    public MainWindow()
-    {
-        InitializeComponent();
-    }
+    public MainWindow() => InitializeComponent();
 
     protected override void OnOpened(EventArgs e)
     {
@@ -34,9 +31,9 @@ public partial class MainWindow : Window
         ["RadioButton"] = typeof(RadioButtonPage)
     };
     
-    private void OnSelectionChanged(object sender, NavigationViewSelectionChangedEventArgs e)
+    private void OnSelectionChanged(object sender, FANavigationViewSelectionChangedEventArgs e)
     {
-        if (e.SelectedItem is not NavigationViewItem item) return;
+        if (e.SelectedItem is not FANavigationViewItem item) return;
 
         if (item.Content is string key && PageMap.TryGetValue(key, out var type))
             Frame.Navigate(type);
