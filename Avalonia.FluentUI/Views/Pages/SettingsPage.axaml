@@ -1,19 +1,14 @@
 <UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
     x:Class="Avalonia.FluentUI.Views.Pages.SettingsPage"
-    x:DataType="SettingsPageViewModel">
+    x:DataType="vm:SettingsPageViewModel">
 
     <UserControl.DataContext>
-        <SettingsPageViewModel />
+        <vm:SettingsPageViewModel />
     </UserControl.DataContext>
-
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <SettingsPageViewModel />
-    </Design.DataContext>
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel

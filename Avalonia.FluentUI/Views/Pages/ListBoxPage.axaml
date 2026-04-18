@@ -1,19 +1,15 @@
 <UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
+    xmlns:models="using:Avalonia.FluentUI.Models"
     xmlns:ui="using:FluentAvalonia.UI.Controls"
     x:Class="Avalonia.FluentUI.Views.Pages.ListBoxPage"
-    x:DataType="ListBoxPageViewModel">
+    x:DataType="vm:ListBoxPageViewModel">
 
     <UserControl.DataContext>
-        <ListBoxPageViewModel />
+        <vm:ListBoxPageViewModel />
     </UserControl.DataContext>
-
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <ListBoxPageViewModel />
-    </Design.DataContext>
 
     <UserControl.Styles>
         <Style Selector="ListBoxItem">
@@ -74,7 +70,7 @@
             SelectedItems="{Binding SelectionItems}"
             SelectionMode="{Binding SelectionMode}">
             <ListBox.ItemTemplate>
-                <DataTemplate DataType="ConnectionItem">
+                <DataTemplate DataType="models:ConnectionItem">
                     <Panel MinWidth="250" Margin="8">
                         <WrapPanel ItemSpacing="5">
                             <ui:FASymbolIcon

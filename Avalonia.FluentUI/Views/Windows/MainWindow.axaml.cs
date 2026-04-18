@@ -6,7 +6,7 @@ using FluentAvalonia.UI.Controls;
 namespace Avalonia.FluentUI.Views.Windows;
 
 public partial class MainWindow : Window
-{ 
+{
     public MainWindow() => InitializeComponent();
 
     protected override void OnOpened(EventArgs e)
@@ -14,7 +14,7 @@ public partial class MainWindow : Window
         base.OnOpened(e);
         RootNavigation.SelectedItem = RootNavigation.MenuItems[0];
     }
-    
+
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(HomePage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(LoginPage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(ListBoxPage))]
@@ -30,7 +30,7 @@ public partial class MainWindow : Window
         ["Settings"] = typeof(SettingsPage),
         ["RadioButton"] = typeof(RadioButtonPage)
     };
-    
+
     private void OnSelectionChanged(object sender, FANavigationViewSelectionChangedEventArgs e)
     {
         if (e.SelectedItem is not FANavigationViewItem item) return;

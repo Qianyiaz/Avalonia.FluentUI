@@ -18,7 +18,7 @@
             <ui:FANavigationViewItem IconSource="ImageAltText" Content="TextBox" />
             <ui:FANavigationViewItem IconSource="List" Content="ListBox" />
             <ui:FANavigationViewItem IconSource="RadioButtonFilled" Content="RadioButton" />
-            <ui:FANavigationViewItem IconSource="Earth" Content="Login"/>
+            <ui:FANavigationViewItem IconSource="Earth" Content="Login" />
         </ui:FANavigationView.MenuItems>
 
         <ui:FANavigationView.FooterMenuItems>

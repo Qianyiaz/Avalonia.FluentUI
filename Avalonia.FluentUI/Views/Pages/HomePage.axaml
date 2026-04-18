@@ -1,19 +1,13 @@
 <UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:vm="using:Avalonia.FluentUI.ViewModels.Pages"
     x:Class="Avalonia.FluentUI.Views.Pages.HomePage"
-    x:DataType="HomePageViewModel">
+    x:DataType="vm:HomePageViewModel">
 
     <UserControl.DataContext>
-        <HomePageViewModel />
+        <vm:HomePageViewModel />
     </UserControl.DataContext>
-
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <HomePageViewModel />
-    </Design.DataContext>
 
     <Border
         Padding="25"
