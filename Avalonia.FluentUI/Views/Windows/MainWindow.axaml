@@ -19,6 +19,7 @@
             <ui:FANavigationViewItem IconSource="List" Content="ListBox" />
             <ui:FANavigationViewItem IconSource="RadioButtonFilled" Content="RadioButton" />
             <ui:FANavigationViewItem IconSource="Earth" Content="Login" />
+            <ui:FANavigationViewItem IconSource="CalendarSync" Content="TabView" />
         </ui:FANavigationView.MenuItems>
 
         <ui:FANavigationView.FooterMenuItems>

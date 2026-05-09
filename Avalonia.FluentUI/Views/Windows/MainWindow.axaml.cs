@@ -19,6 +19,7 @@ public partial class MainWindow : Window
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(LoginPage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(ListBoxPage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(TextBoxPage))]
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(TabViewPage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(SettingsPage))]
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(RadioButtonPage))]
     private void OnSelectionChanged(object sender, FANavigationViewSelectionChangedEventArgs e)
@@ -31,6 +32,7 @@ public partial class MainWindow : Window
             "Home" => typeof(HomePage),
             "Login" => typeof(LoginPage),
             "ListBox" => typeof(ListBoxPage),
+            "TabView" => typeof(TabViewPage),
             "TextBox" => typeof(TextBoxPage),
             "Settings" => typeof(SettingsPage),
             "RadioButton" => typeof(RadioButtonPage),

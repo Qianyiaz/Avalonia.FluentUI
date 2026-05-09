@@ -1,0 +1,17 @@
+﻿<UserControl 
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    x:Class="Avalonia.FluentUI.Views.Pages.TabViewPage">
+    <ui:FATabView>
+        <ui:FATabViewItem Header="Tab 1">
+            <TextBlock Text="Content of Tab 1" />
+        </ui:FATabViewItem>
+        <ui:FATabViewItem Header="Tab 2">
+            <TextBlock Text="Content of Tab 2" />
+        </ui:FATabViewItem>
+        <ui:FATabViewItem Header="Tab 3">
+            <TextBlock Text="Content of Tab 3" />
+        </ui:FATabViewItem>
+    </ui:FATabView>
+</UserControl>
