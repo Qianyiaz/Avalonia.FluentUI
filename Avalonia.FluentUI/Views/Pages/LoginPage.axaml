@@ -9,15 +9,15 @@
         Background="{DynamicResource ButtonBackground}"
         CornerRadius="{DynamicResource OverlayCornerRadius}">
         <StackPanel VerticalAlignment="Center" MinWidth="400" Spacing="8">
-            <TextBlock FontWeight="Bold" FontSize="25">登录界面</TextBlock>
-            <TextBox Classes="clearButton" IsVisible="{Binding !#CheckBox.IsChecked}" PlaceholderText="用户名" />
-            <TextBox Classes="revealPasswordButton" IsVisible="{Binding !#CheckBox.IsChecked}" PlaceholderText="密码" PasswordChar="*" />
-            <TextBox Classes="revealPasswordButton" IsVisible="{Binding #CheckBox.IsChecked}" PlaceholderText="用户令牌" PasswordChar="*" />
+            <TextBlock FontWeight="Bold" FontSize="25">Login</TextBlock>
+            <TextBox Classes="clearButton" IsVisible="{Binding !#CheckBox.IsChecked}" PlaceholderText="Username" />
+            <TextBox Classes="revealPasswordButton" IsVisible="{Binding !#CheckBox.IsChecked}" PlaceholderText="Password" PasswordChar="*" />
+            <TextBox Classes="revealPasswordButton" IsVisible="{Binding #CheckBox.IsChecked}" PlaceholderText="Token" PasswordChar="*" />
             <WrapPanel ItemSpacing="5">
-                <CheckBox Name="CheckBox" Content="使用令牌(token)登录" />
-                <CheckBox IsChecked="True" Content="保持登录" />
+                <CheckBox Name="CheckBox" Content="Use token to login" />
+                <CheckBox IsChecked="True" Content="Stay logged in" />
             </WrapPanel>
-            <Button Classes="accent" HotKey="Enter" Content="登录" HorizontalAlignment="Right" />
+            <Button Classes="accent" HotKey="Enter" Content="Login" HorizontalAlignment="Right" />
         </StackPanel>
     </Border>
 </UserControl>

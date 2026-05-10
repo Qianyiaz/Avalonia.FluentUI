@@ -23,7 +23,7 @@
         </ui:FANavigationView.MenuItems>
 
         <ui:FANavigationView.FooterMenuItems>
-            <ui:FANavigationViewItem IconSource="Settings" Content="Settings" />
+            <ui:FANavigationViewItem Classes="setting" IconSource="Settings" Content="Settings" />
         </ui:FANavigationView.FooterMenuItems>
 
         <ui:FAFrame Name="Frame" />
