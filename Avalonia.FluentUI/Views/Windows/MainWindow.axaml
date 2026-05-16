@@ -5,6 +5,7 @@
     x:Class="Avalonia.FluentUI.Views.Windows.MainWindow"
     TransparencyLevelHint="Mica,AcrylicBlur,None"
     Background="Transparent"
+    Width="1015" Height="550"
     Title="Avalonia.FluentUI"
     Icon="/app.ico">
 
