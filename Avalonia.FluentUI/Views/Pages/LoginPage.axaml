@@ -11,8 +11,10 @@
         <StackPanel VerticalAlignment="Center" MinWidth="400" Spacing="8">
             <TextBlock FontWeight="Bold" FontSize="25">Login</TextBlock>
             <TextBox Classes="clearButton" IsVisible="{Binding !#CheckBox.IsChecked}" PlaceholderText="Username" />
-            <TextBox Classes="revealPasswordButton" IsVisible="{Binding !#CheckBox.IsChecked}" PlaceholderText="Password" PasswordChar="*" />
-            <TextBox Classes="revealPasswordButton" IsVisible="{Binding #CheckBox.IsChecked}" PlaceholderText="Token" PasswordChar="*" />
+            <TextBox Classes="revealPasswordButton" IsVisible="{Binding !#CheckBox.IsChecked}"
+                     PlaceholderText="Password" PasswordChar="*" />
+            <TextBox Classes="revealPasswordButton" IsVisible="{Binding #CheckBox.IsChecked}" PlaceholderText="Token"
+                     PasswordChar="*" />
             <WrapPanel ItemSpacing="5">
                 <CheckBox Name="CheckBox" Content="Use token to login" />
                 <CheckBox IsChecked="True" Content="Stay logged in" />

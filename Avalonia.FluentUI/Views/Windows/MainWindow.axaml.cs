@@ -26,8 +26,7 @@ public partial class MainWindow : Window
     {
         if (e.SelectedItem is not FANavigationViewItem item) return;
 
-        if (item.Content is not string key) return;
-        Frame.Navigate(key switch
+        Frame.Navigate(item.Content switch
         {
             "Home" => typeof(HomePage),
             "Login" => typeof(LoginPage),

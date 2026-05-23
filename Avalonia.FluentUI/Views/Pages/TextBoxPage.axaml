@@ -20,7 +20,7 @@
                 PasswordChar="*"
                 ToolTip.Tip="A tooltip."
                 Classes="revealPasswordButton"
-                PlaceholderText="I am a PasswordBox with a watermark and a tooltip."/>
+                PlaceholderText="I am a PasswordBox with a watermark and a tooltip." />
 
             <TextBox
                 MinHeight="125"
