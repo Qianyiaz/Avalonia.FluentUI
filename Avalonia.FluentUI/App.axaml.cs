@@ -6,13 +6,7 @@ namespace Avalonia.FluentUI;
 
 public class App : Application
 {
-    public override void Initialize()
-    {
-        AvaloniaXamlLoader.Load(this);        
-#if DEBUG
-        this.AttachDeveloperTools();
-#endif
-    }
+    public override void Initialize() => AvaloniaXamlLoader.Load(this);
 
     public override void OnFrameworkInitializationCompleted()
     {
