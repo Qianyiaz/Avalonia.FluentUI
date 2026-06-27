@@ -24,9 +24,7 @@ public partial class MainWindow : Window
     [DynamicDependency(DynamicallyAccessedMemberTypes.PublicConstructors, typeof(RadioButtonPage))]
     private void OnSelectionChanged(object sender, FANavigationViewSelectionChangedEventArgs e)
     {
-        if (e.SelectedItem is not FANavigationViewItem item) return;
-
-        Frame.Navigate(item.Content switch
+        Frame.Navigate((e.SelectedItem as FANavigationViewItem)!.Content switch
         {
             "Home" => typeof(HomePage),
             "Login" => typeof(LoginPage),
